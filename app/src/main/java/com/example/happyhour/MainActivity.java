@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         //random
         final int wallpaperRandom = (int) (Math.random() * 5 + 1);
         //Initialize wallpaper to load all the R.drawable
-        WallPaper wallPaper = new WallPaper();
+        final WallPaper wallPaper = new WallPaper();
 
         ImageView imageView = findViewById(R.id.fondoPantalla);
         //Get the resource ID
@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Game_mode.class);
+                intent.putExtra("wallpaper", wallPaper.getWallpaper().get(wallpaperRandom));
                 startActivity(intent);
             }
         });

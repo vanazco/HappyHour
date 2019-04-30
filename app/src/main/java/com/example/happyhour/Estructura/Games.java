@@ -1,10 +1,10 @@
 package com.example.happyhour.Estructura;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.example.happyhour.Games.Adri.Game1_1;
 import com.example.happyhour.Games.Adri.Game1_2;
@@ -22,7 +22,7 @@ import com.example.happyhour.R;
 
 public class Games extends AppCompatActivity {
 
-    Button btn1,btn2,btn3,btn4,btn5,btn6;
+    ImageButton btn1,btn2,btn3,btn4,btn5,btn6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
