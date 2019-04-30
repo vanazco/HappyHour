@@ -6,15 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btn_start"
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="336dp"
-        android:text="START"
+        android:layout_marginStart="264dp"
+        android:layout_marginTop="137dp"
+        android:layout_marginEnd="265dp"
+        android:layout_marginBottom="137dp"
+        android:background="#00FFFFFF"
+        android:src="@drawable/playbutton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.449"></Button>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
