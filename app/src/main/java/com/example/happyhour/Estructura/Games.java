@@ -52,9 +52,11 @@ public class Games extends AppCompatActivity {
             public void onClick(View v) {
                 if(level == 1){
                     intent = new Intent(Games.this, Game1_1.class);
+                    intent.putExtra("wallpaper", wallpaper);
                     startActivity(intent);
                 }else{
                     intent = new Intent(Games.this, Game1_2.class);
+                    intent.putExtra("wallpaper", wallpaper);
                     startActivity(intent);
                 }
             }
@@ -64,9 +66,11 @@ public class Games extends AppCompatActivity {
             public void onClick(View v) {
                 if(level == 1){
                     intent = new Intent(Games.this, Game2_1.class);
+                    intent.putExtra("wallpaper", wallpaper);
                     startActivity(intent);
                 }else{
                     intent = new Intent(Games.this, Game2_2.class);
+                    intent.putExtra("wallpaper", wallpaper);
                     startActivity(intent);
                 }
             }
@@ -76,9 +80,11 @@ public class Games extends AppCompatActivity {
             public void onClick(View v) {
                 if(level == 1){
                     intent = new Intent(Games.this, Game3_1.class);
+                    intent.putExtra("wallpaper", wallpaper);
                     startActivity(intent);
                 }else{
                     intent = new Intent(Games.this, Game3_2.class);
+                    intent.putExtra("wallpaper", wallpaper);
                     startActivity(intent);
                 }
             }
@@ -88,9 +94,11 @@ public class Games extends AppCompatActivity {
             public void onClick(View v) {
                 if(level == 1){
                     intent = new Intent(Games.this, Game4_1.class);
+                    intent.putExtra("wallpaper", wallpaper);
                     startActivity(intent);
                 }else{
                     intent = new Intent(Games.this, Game4_2.class);
+                    intent.putExtra("wallpaper", wallpaper);
                     startActivity(intent);
                 }
             }
@@ -100,9 +108,11 @@ public class Games extends AppCompatActivity {
             public void onClick(View v) {
                 if(level == 1){
                     intent = new Intent(Games.this, Game5_1.class);
+                    intent.putExtra("wallpaper", wallpaper);
                     startActivity(intent);
                 }else{
                     intent = new Intent(Games.this, Game5_2.class);
+                    intent.putExtra("wallpaper", wallpaper);
                     startActivity(intent);
                 }
             }
@@ -112,9 +122,11 @@ public class Games extends AppCompatActivity {
             public void onClick(View v) {
                 if(level == 1){
                     intent = new Intent(Games.this, Game6_1.class);
+                    intent.putExtra("wallpaper", wallpaper);
                     startActivity(intent);
                 }else{
                     intent = new Intent(Games.this, Game6_2.class);
+                    intent.putExtra("wallpaper", wallpaper);
                     startActivity(intent);
                 }
             }
