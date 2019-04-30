@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".Estructura.Game_mode">
 
+    <include layout="@layout/fondo_pantalla" />
+
     <ImageButton
         android:id="@+id/btn_random"
         android:layout_width="195dp"
@@ -17,7 +19,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-
     <ImageButton
         android:id="@+id/btn_games"
         android:layout_width="184dp"
@@ -28,8 +29,6 @@
         android:src="@drawable/gamesfolder"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-
 
 
 </android.support.constraint.ConstraintLayout>
