@@ -13,7 +13,7 @@
         android:layout_marginStart="36dp"
         android:layout_marginBottom="32dp"
         android:background="#00FFFFFF"
-        android:src="@drawable/numberGame"
+        android:src="@drawable/number_game"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -25,7 +25,7 @@
         android:layout_marginEnd="36dp"
         android:layout_marginBottom="32dp"
         android:background="#00FFFFFF"
-        android:src="@drawable/shapeGame"
+        android:src="@drawable/shape_game"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/game4"
@@ -39,7 +39,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="32dp"
         android:background="#00FFFFFF"
-        android:src="@drawable/abcGame"
+        android:src="@drawable/abc_game"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/game2"
         app:layout_constraintStart_toEndOf="@+id/game1" />
@@ -52,7 +52,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="36dp"
         android:background="#00FFFFFF"
-        android:src="@drawable/cardGame"
+        android:src="@drawable/card_game"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -65,7 +65,7 @@
         android:layout_marginEnd="36dp"
         android:layout_marginBottom="8dp"
         android:background="#00FFFFFF"
-        android:src="@drawable/puzzleGame"
+        android:src="@drawable/puzzle_game"
         app:layout_constraintBottom_toTopOf="@+id/game3"
         app:layout_constraintEnd_toStartOf="@+id/game4"
         app:layout_constraintHorizontal_bias="0.966"
@@ -81,7 +81,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginBottom="8dp"
         android:background="#00FFFFFF"
-        android:src="@drawable/colourGame"
+        android:src="@drawable/colour_game"
         app:layout_constraintBottom_toTopOf="@+id/game1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
