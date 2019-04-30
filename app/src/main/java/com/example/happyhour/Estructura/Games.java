@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.example.happyhour.Games.Adri.Game1_1;
 import com.example.happyhour.Games.Adri.Game1_2;
@@ -23,11 +24,18 @@ import com.example.happyhour.R;
 public class Games extends AppCompatActivity {
 
     ImageButton btn1,btn2,btn3,btn4,btn5,btn6;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_games);
+
+        final int wallpaper = getIntent().getIntExtra("wallpaper", 1);
+
+        ImageView imageView = findViewById(R.id.fondoPantalla);
+        //Get the resource ID
+        imageView.setImageResource(wallpaper);
 
         final int level = (int )(Math.random() * 2 + 1);
 
@@ -43,11 +51,11 @@ public class Games extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(level == 1){
-                    Intent intent2 = new Intent(Games.this, Game1_1.class);
-                    startActivity(intent2);
+                    intent = new Intent(Games.this, Game1_1.class);
+                    startActivity(intent);
                 }else{
-                    Intent intent2 = new Intent(Games.this, Game1_2.class);
-                    startActivity(intent2);
+                    intent = new Intent(Games.this, Game1_2.class);
+                    startActivity(intent);
                 }
             }
         });
@@ -55,11 +63,11 @@ public class Games extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(level == 1){
-                    Intent intent2 = new Intent(Games.this, Game2_1.class);
-                    startActivity(intent2);
+                    intent = new Intent(Games.this, Game2_1.class);
+                    startActivity(intent);
                 }else{
-                    Intent intent2 = new Intent(Games.this, Game2_2.class);
-                    startActivity(intent2);
+                    intent = new Intent(Games.this, Game2_2.class);
+                    startActivity(intent);
                 }
             }
         });
@@ -67,11 +75,11 @@ public class Games extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(level == 1){
-                    Intent intent2 = new Intent(Games.this, Game3_1.class);
-                    startActivity(intent2);
+                    intent = new Intent(Games.this, Game3_1.class);
+                    startActivity(intent);
                 }else{
-                    Intent intent2 = new Intent(Games.this, Game3_2.class);
-                    startActivity(intent2);
+                    intent = new Intent(Games.this, Game3_2.class);
+                    startActivity(intent);
                 }
             }
         });
@@ -79,11 +87,11 @@ public class Games extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(level == 1){
-                    Intent intent2 = new Intent(Games.this, Game4_1.class);
-                    startActivity(intent2);
+                    intent = new Intent(Games.this, Game4_1.class);
+                    startActivity(intent);
                 }else{
-                    Intent intent2 = new Intent(Games.this, Game4_2.class);
-                    startActivity(intent2);
+                    intent = new Intent(Games.this, Game4_2.class);
+                    startActivity(intent);
                 }
             }
         });
@@ -91,11 +99,11 @@ public class Games extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(level == 1){
-                    Intent intent2 = new Intent(Games.this, Game5_1.class);
-                    startActivity(intent2);
+                    intent = new Intent(Games.this, Game5_1.class);
+                    startActivity(intent);
                 }else{
-                    Intent intent2 = new Intent(Games.this, Game5_2.class);
-                    startActivity(intent2);
+                    intent = new Intent(Games.this, Game5_2.class);
+                    startActivity(intent);
                 }
             }
         });
@@ -103,11 +111,11 @@ public class Games extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(level == 1){
-                    Intent intent2 = new Intent(Games.this, Game6_1.class);
-                    startActivity(intent2);
+                    intent = new Intent(Games.this, Game6_1.class);
+                    startActivity(intent);
                 }else{
-                    Intent intent2 = new Intent(Games.this, Game6_2.class);
-                    startActivity(intent2);
+                    intent = new Intent(Games.this, Game6_2.class);
+                    startActivity(intent);
                 }
             }
         });
