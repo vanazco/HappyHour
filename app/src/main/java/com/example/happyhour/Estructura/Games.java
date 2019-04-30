@@ -25,13 +25,14 @@ public class Games extends AppCompatActivity {
 
     ImageButton btn1,btn2,btn3,btn4,btn5,btn6;
     private Intent intent;
+    private static int wallpaper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_games);
 
-        final int wallpaper = getIntent().getIntExtra("wallpaper", 1);
+        wallpaper = getIntent().getIntExtra("wallpaper", 1);
 
         ImageView imageView = findViewById(R.id.fondoPantalla);
         //Get the resource ID
@@ -131,5 +132,14 @@ public class Games extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(this, Game_mode.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra("wallpaper", wallpaper);
+        startActivity(intent);
     }
 }

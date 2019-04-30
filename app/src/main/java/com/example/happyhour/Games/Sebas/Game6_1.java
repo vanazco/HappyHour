@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.happyhour.Estructura.Game_mode;
+import com.example.happyhour.Estructura.Games;
 import com.example.happyhour.R;
 
 public class Game6_1 extends AppCompatActivity {
@@ -22,7 +23,7 @@ public class Game6_1 extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(this, Game_mode.class);
+        Intent intent = new Intent(this, Games.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.putExtra("wallpaper", wallpaper);
         startActivity(intent);
