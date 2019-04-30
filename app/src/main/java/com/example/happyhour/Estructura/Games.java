@@ -6,17 +6,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.happyhour.Games.Adri.Game1_1;
 import com.example.happyhour.Games.Adri.Game1_2;
 import com.example.happyhour.Games.Adri.Game2_1;
 import com.example.happyhour.Games.Adri.Game2_2;
-import com.example.happyhour.Games.Victor.Game3_1;
-import com.example.happyhour.Games.Victor.Game3_2;
-import com.example.happyhour.Games.Victor.Game4_1;
-import com.example.happyhour.Games.Victor.Game4_2;
 import com.example.happyhour.Games.Sebas.Game5_1;
 import com.example.happyhour.Games.Sebas.Game5_2;
 import com.example.happyhour.Games.Sebas.Game6_1;
 import com.example.happyhour.Games.Sebas.Game6_2;
+import com.example.happyhour.Games.Victor.Game3_1;
+import com.example.happyhour.Games.Victor.Game3_2;
+import com.example.happyhour.Games.Victor.Game4_1;
+import com.example.happyhour.Games.Victor.Game4_2;
 import com.example.happyhour.R;
 
 public class Games extends AppCompatActivity {
