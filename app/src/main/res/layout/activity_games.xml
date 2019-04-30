@@ -6,61 +6,85 @@
     android:layout_height="match_parent"
     tools:context=".Estructura.Games">
 
-    <Button
+    <ImageButton
         android:id="@+id/game1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="116dp"
-        android:text="GAME1"
-        app:layout_constraintEnd_toEndOf="@+id/game2"
-        app:layout_constraintStart_toStartOf="@+id/game2"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/game2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:text="GAME2"
-        app:layout_constraintBottom_toBottomOf="@+id/game3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/game3" />
-
-    <Button
-        android:id="@+id/game3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="289dp"
-        android:text="GAME3"
-        app:layout_constraintBottom_toBottomOf="@+id/game6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/game6" />
-
-    <Button
-        android:id="@+id/game4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="GAME4"
-        app:layout_constraintBaseline_toBaselineOf="@+id/game5"
-        app:layout_constraintStart_toStartOf="@+id/game3" />
-
-    <Button
-        android:id="@+id/game5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="125dp"
-        android:text="GAME5"
-        app:layout_constraintStart_toStartOf="@+id/game6"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/game6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="136dp"
-        android:layout_marginBottom="97dp"
-        android:text="GAME6"
+        android:layout_width="195dp"
+        android:layout_height="159dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="32dp"
+        android:background="#00FFFFFF"
+        android:src="@drawable/numberGame"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/game2"
+        android:layout_width="195dp"
+        android:layout_height="159dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="32dp"
+        android:background="#00FFFFFF"
+        android:src="@drawable/shapeGame"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/game4"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageButton
+        android:id="@+id/game3"
+        android:layout_width="195dp"
+        android:layout_height="159dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="32dp"
+        android:background="#00FFFFFF"
+        android:src="@drawable/abcGame"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/game2"
+        app:layout_constraintStart_toEndOf="@+id/game1" />
+
+
+    <ImageButton
+        android:id="@+id/game4"
+        android:layout_width="195dp"
+        android:layout_height="159dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="36dp"
+        android:background="#00FFFFFF"
+        android:src="@drawable/cardGame"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/game5"
+        android:layout_width="195dp"
+        android:layout_height="159dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="8dp"
+        android:background="#00FFFFFF"
+        android:src="@drawable/puzzleGame"
+        app:layout_constraintBottom_toTopOf="@+id/game3"
+        app:layout_constraintEnd_toStartOf="@+id/game4"
+        app:layout_constraintHorizontal_bias="0.966"
+        app:layout_constraintStart_toEndOf="@+id/game6"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/game6"
+        android:layout_width="195dp"
+        android:layout_height="159dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="8dp"
+        android:background="#00FFFFFF"
+        android:src="@drawable/colourGame"
+        app:layout_constraintBottom_toTopOf="@+id/game1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 </android.support.constraint.ConstraintLayout>
