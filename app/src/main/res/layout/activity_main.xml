@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <include layout="@layout/fondo_pantalla" />
+
     <ImageButton
         android:id="@+id/btn_start"
         android:layout_width="wrap_content"
