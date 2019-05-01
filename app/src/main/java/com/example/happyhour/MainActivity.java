@@ -10,7 +10,6 @@ import com.example.happyhour.Estructura.Game_mode;
 
 public class MainActivity extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
