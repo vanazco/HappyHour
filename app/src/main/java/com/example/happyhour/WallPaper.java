@@ -1,10 +1,9 @@
 package com.example.happyhour;
 
-import java.util.HashMap;
-import java.util.Map;
+import android.util.SparseIntArray;
 
 class WallPaper {
-    private Map<Integer, Integer> wallpaper = new HashMap<>();
+    private SparseIntArray wallpaper = new SparseIntArray();
 
     WallPaper() {
         wallpaper.put(1, R.drawable.wallpaper1);
@@ -14,7 +13,7 @@ class WallPaper {
         wallpaper.put(5, R.drawable.wallpaper5);
     }
 
-    Map<Integer, Integer> getWallpaper() {
+    SparseIntArray getWallpaper() {
         return wallpaper;
     }
 }
