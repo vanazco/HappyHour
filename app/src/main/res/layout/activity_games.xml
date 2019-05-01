@@ -6,9 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Estructura.Games">
 
-    <include
-        android:id="@+id/include"
-        layout="@layout/fondo_pantalla" />
+    <include layout="@layout/fondo_pantalla" />
 
     <ImageButton
         android:id="@+id/game1"
@@ -64,7 +62,7 @@
         android:background="#00FFFFFF"
         android:src="@drawable/puzzle_game"
         app:layout_constraintStart_toEndOf="@+id/game6"
-        app:layout_constraintTop_toTopOf="@+id/include" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/game6"
