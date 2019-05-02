@@ -6,10 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".Estructura.Game_mode">
 
-    <include
-        layout="@layout/fondo_pantalla"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="0dp" />
+    <include layout="@layout/fondo_pantalla" />
+
+    <include layout="@layout/onclick_screen" />
 
     <ImageButton
         android:id="@+id/btn_random"
