@@ -6,7 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.example.happyhour.Controls.TouchScreenEvents;
 import com.example.happyhour.Estructura.Game_mode;
+import com.example.happyhour.Sparkles.ParticalView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ParticalView view = new ParticalView(this);
 
         //random
         final int wallpaperRandom = (int) (Math.random() * 5 + 1);

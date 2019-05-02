@@ -67,6 +67,7 @@
         <activity
             android:name=".Estructura.Game_mode"
             android:screenOrientation="landscape" />
+        <activity android:name=".Sparkles.ParticleActivity"/>
         <activity
             android:name=".MainActivity"
             android:screenOrientation="landscape">

@@ -1,9 +1,11 @@
-package com.example.happyhour;
+package com.example.happyhour.Controls;
 
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.example.happyhour.R;
 
 public class TouchScreenEvents {
     // class member variable to save the X,Y coordinates
@@ -17,6 +19,9 @@ public class TouchScreenEvents {
                 if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
                     lastTouchDownXY[0] = event.getX();
                     lastTouchDownXY[1] = event.getY();
+                } else {
+                    lastTouchDownXY[0] = 0;
+                    lastTouchDownXY[1] = 0;
                 }
                 // let the touch event pass on to whoever needs it
                 return false;
@@ -32,13 +37,14 @@ public class TouchScreenEvents {
                 float x = lastTouchDownXY[0];
                 float y = lastTouchDownXY[1];
 
-                // use the coordinates for whatever
-                Toast.makeText(v.getContext(), "x = " + x + ", y = " + y, Toast.LENGTH_LONG).show();
-
-                imageView.setX(x);
-                imageView.setY(y);
-                imageView.setImageResource(R.drawable.gear);
-                imageView.setVisibility(View.VISIBLE);
+                if (x == 0 || y == 0) {
+                    imageView.setVisibility(View.GONE);
+                } else {
+                    imageView.setX(x);
+                    imageView.setY(y);
+                    imageView.setImageResource(R.drawable.gear);
+                    imageView.setVisibility(View.VISIBLE);
+                }
             }
         };
     }

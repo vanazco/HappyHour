@@ -20,7 +20,7 @@ import com.example.happyhour.Games.Victor.Game3_2;
 import com.example.happyhour.Games.Victor.Game4_1;
 import com.example.happyhour.Games.Victor.Game4_2;
 import com.example.happyhour.R;
-import com.example.happyhour.TouchScreenEvents;
+import com.example.happyhour.Controls.TouchScreenEvents;
 
 public class Games extends AppCompatActivity {
 
