@@ -24,6 +24,10 @@ public class MainActivity extends AppCompatActivity {
         //Get the resource ID
         imageView.setImageResource(wallPaper.getWallpaper().get(wallpaperRandom));
 
+        ImageView click = findViewById(R.id.onclickAnimation);
+        findViewById(R.id.onclickPantalla).setOnTouchListener(TouchScreenEvents.touchListener());
+        findViewById(R.id.onclickPantalla).setOnClickListener(TouchScreenEvents.onClick(click));
+
         findViewById(R.id.btn_start).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

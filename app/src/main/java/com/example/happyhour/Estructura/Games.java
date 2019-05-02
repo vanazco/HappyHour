@@ -20,6 +20,7 @@ import com.example.happyhour.Games.Victor.Game3_2;
 import com.example.happyhour.Games.Victor.Game4_1;
 import com.example.happyhour.Games.Victor.Game4_2;
 import com.example.happyhour.R;
+import com.example.happyhour.TouchScreenEvents;
 
 public class Games extends AppCompatActivity {
 
@@ -38,6 +39,10 @@ public class Games extends AppCompatActivity {
         //Get the resource ID
         imageView.setImageResource(wallpaper);
 
+        ImageView click = findViewById(R.id.onclickAnimation);
+        findViewById(R.id.onclickPantalla).setOnTouchListener(TouchScreenEvents.touchListener());
+        findViewById(R.id.onclickPantalla).setOnClickListener(TouchScreenEvents.onClick(click));
+
         final int level = (int )(Math.random() * 2 + 1);
 
         btn1 = findViewById(R.id.game1);
@@ -46,7 +51,6 @@ public class Games extends AppCompatActivity {
         btn4 = findViewById(R.id.game4);
         btn5 = findViewById(R.id.game5);
         btn6 = findViewById(R.id.game6);
-
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override

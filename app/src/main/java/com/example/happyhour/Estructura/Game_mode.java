@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.happyhour.R;
+import com.example.happyhour.TouchScreenEvents;
 
 public class Game_mode extends AppCompatActivity {
     private static Intent intent;
@@ -21,6 +22,10 @@ public class Game_mode extends AppCompatActivity {
         ImageView imageView = findViewById(R.id.fondoPantalla);
         //Get the resource ID
         imageView.setImageResource(wallpaper);
+
+        ImageView click = findViewById(R.id.onclickAnimation);
+        findViewById(R.id.onclickPantalla).setOnTouchListener(TouchScreenEvents.touchListener());
+        findViewById(R.id.onclickPantalla).setOnClickListener(TouchScreenEvents.onClick(click));
 
         findViewById(R.id.btn_games).setOnClickListener(new View.OnClickListener() {
             @Override
