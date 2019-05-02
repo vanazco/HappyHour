@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.example.happyhour.HelpActivity;
 import com.example.happyhour.R;
 import com.example.happyhour.TouchScreenEvents;
 
@@ -44,5 +45,16 @@ public class Game_mode extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        findViewById(R.id.btn_help).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(Game_mode.this, HelpActivity.class);
+                intent.putExtra("wallpaper", wallpaper);
+                startActivity(intent);
+            }
+        });
+
+
     }
 }
