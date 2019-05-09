@@ -21,7 +21,7 @@
             android:noHistory="true"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".Games.Victor.Game4_1"
+            android:name=".Games.Victor.CardGame1"
             android:noHistory="true"
             android:screenOrientation="landscape" />
         <activity
