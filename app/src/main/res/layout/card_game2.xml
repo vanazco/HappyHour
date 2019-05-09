@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Games.Victor.CardGame1">
+    tools:context=".Games.Victor.CardGame2">
 
     <include
-        android:id="@+id/include3"
+        android:id="@+id/include4"
         layout="@layout/fondo_pantalla" />
 
     <ImageButton
@@ -15,15 +15,15 @@
         android:layout_width="180dp"
         android:layout_height="150dp"
         android:background="@drawable/bee"
-        tools:layout_editor_absoluteX="266dp"
-        tools:layout_editor_absoluteY="208dp" />
+        tools:layout_editor_absoluteX="180dp"
+        tools:layout_editor_absoluteY="202dp" />
 
     <ImageButton
         android:id="@+id/bewear_2"
         android:layout_width="180dp"
         android:layout_height="150dp"
         android:background="@drawable/bewear"
-        tools:layout_editor_absoluteX="479dp"
+        tools:layout_editor_absoluteX="360dp"
         tools:layout_editor_absoluteY="52dp" />
 
     <ImageButton
@@ -31,15 +31,15 @@
         android:layout_width="180dp"
         android:layout_height="150dp"
         android:background="@drawable/bewear"
-        tools:layout_editor_absoluteX="48dp"
-        tools:layout_editor_absoluteY="208dp" />
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="202dp" />
 
     <ImageButton
         android:id="@+id/panda_1"
         android:layout_width="180dp"
         android:layout_height="150dp"
         android:background="@drawable/panda"
-        tools:layout_editor_absoluteX="266dp"
+        tools:layout_editor_absoluteX="180dp"
         tools:layout_editor_absoluteY="52dp" />
 
     <ImageButton
@@ -47,15 +47,31 @@
         android:layout_width="180dp"
         android:layout_height="150dp"
         android:background="@drawable/panda"
-        tools:layout_editor_absoluteX="479dp"
-        tools:layout_editor_absoluteY="208dp" />
+        tools:layout_editor_absoluteX="540dp"
+        tools:layout_editor_absoluteY="202dp" />
 
     <ImageButton
         android:id="@+id/bee_1"
         android:layout_width="180dp"
         android:layout_height="150dp"
         android:background="@drawable/bee"
-        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="52dp" />
+
+    <ImageButton
+        android:id="@+id/rowlet_1"
+        android:layout_width="180dp"
+        android:layout_height="150dp"
+        android:background="@drawable/rowlet"
+        tools:layout_editor_absoluteX="360dp"
+        tools:layout_editor_absoluteY="202dp" />
+
+    <ImageButton
+        android:id="@+id/rowlet_2"
+        android:layout_width="180dp"
+        android:layout_height="150dp"
+        android:background="@drawable/rowlet"
+        tools:layout_editor_absoluteX="540dp"
         tools:layout_editor_absoluteY="52dp" />
 
 

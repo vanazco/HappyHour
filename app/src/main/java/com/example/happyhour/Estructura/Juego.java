@@ -16,7 +16,7 @@ import com.example.happyhour.Games.Sebas.Game6_2;
 import com.example.happyhour.Games.Victor.Game3_1;
 import com.example.happyhour.Games.Victor.Game3_2;
 import com.example.happyhour.Games.Victor.CardGame1;
-import com.example.happyhour.Games.Victor.Game4_2;
+import com.example.happyhour.Games.Victor.CardGame2;
 import com.example.happyhour.R;
 
 public class Juego extends AppCompatActivity {
@@ -76,7 +76,7 @@ public class Juego extends AppCompatActivity {
                 intent.putExtra("wallpaper", wallpaper);
                 startActivity(intent);
             }else{
-                intent = new Intent(Juego.this, Game4_2.class);
+                intent = new Intent(Juego.this, CardGame2.class);
                 Toast.makeText(this,"game4_2",Toast.LENGTH_SHORT).show();
                 intent.putExtra("wallpaper", wallpaper);
                 startActivity(intent);
