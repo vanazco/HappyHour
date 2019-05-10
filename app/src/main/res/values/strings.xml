@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">HappyHour</string>
+    <string name="text_help">Bienvenid@s a Happy Hour
+        En esta aplicacion se encuentran varios minijuegos con los que
+        poder divertirte al maximo.
+    </string>
 </resources>

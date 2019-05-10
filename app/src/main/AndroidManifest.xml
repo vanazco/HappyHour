@@ -17,11 +17,11 @@
             android:name=".Estructura.Juego"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".Games.Victor.Game4_2"
+            android:name=".Games.Victor.CardGame2"
             android:noHistory="true"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".Games.Victor.Game4_1"
+            android:name=".Games.Victor.CardGame1"
             android:noHistory="true"
             android:screenOrientation="landscape" />
         <activity

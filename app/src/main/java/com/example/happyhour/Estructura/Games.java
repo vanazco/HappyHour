@@ -17,8 +17,8 @@ import com.example.happyhour.Games.Sebas.Game6_1;
 import com.example.happyhour.Games.Sebas.Game6_2;
 import com.example.happyhour.Games.Victor.Game3_1;
 import com.example.happyhour.Games.Victor.Game3_2;
-import com.example.happyhour.Games.Victor.Game4_1;
-import com.example.happyhour.Games.Victor.Game4_2;
+import com.example.happyhour.Games.Victor.CardGame1;
+import com.example.happyhour.Games.Victor.CardGame2;
 import com.example.happyhour.R;
 import com.example.happyhour.Controls.TouchScreenEvents;
 
@@ -98,11 +98,11 @@ public class Games extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(level == 1){
-                    intent = new Intent(Games.this, Game4_1.class);
+                    intent = new Intent(Games.this, CardGame1.class);
                     intent.putExtra("wallpaper", wallpaper);
                     startActivity(intent);
                 }else{
-                    intent = new Intent(Games.this, Game4_2.class);
+                    intent = new Intent(Games.this, CardGame2.class);
                     intent.putExtra("wallpaper", wallpaper);
                     startActivity(intent);
                 }

@@ -6,9 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".HelpActivity">
 
-    <include layout="@layout/fondo_pantalla" />
+    <include
+        android:id="@+id/include2"
+        layout="@layout/fondo_pantalla" />
 
-    <include layout="@layout/onclick_screen" />
+    <include
+        android:id="@+id/include"
+        layout="@layout/onclick_screen"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="67dp" />
+
+    <TextView
+        android:background="#FFF"
+        android:layout_width="579dp"
+        android:layout_height="277dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/text_help"
+        app:layout_constraintBottom_toBottomOf="@+id/include2"
+        app:layout_constraintEnd_toEndOf="@+id/include2"
+        app:layout_constraintStart_toStartOf="@+id/include2"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 
