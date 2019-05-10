@@ -14,7 +14,7 @@ public class CardGame2 extends AppCompatActivity {
 
     static int wallpaper;
 
-    Card bee1, bee2, bewear1, bewear2, panda1, panda2;
+    Card bee1, bee2, bewear1, bewear2, panda1, panda2,rowlet1,rowlet2;
     int cartas;
     Card flipped;
     Handler handler;
@@ -39,15 +39,19 @@ public class CardGame2 extends AppCompatActivity {
         bewear2 = new Card();
         panda1 = new Card();
         panda2 = new Card();
+        rowlet1 = new Card();
+        rowlet2 = new Card();
 
         handler = new Handler();
 
-        bee1.btn = findViewById(R.id.bee_1);
-        bee2.btn = findViewById(R.id.bee_2);
-        bewear1.btn = findViewById(R.id.bewear_1);
-        bewear2.btn = findViewById(R.id.bewear_2);
-        panda1.btn = findViewById(R.id.panda_1);
-        panda2.btn = findViewById(R.id.panda_2);
+        bee1.btn = findViewById(R.id.bee_1_2);
+        bee2.btn = findViewById(R.id.bee_2_2);
+        bewear1.btn = findViewById(R.id.bewear_1_2);
+        bewear2.btn = findViewById(R.id.bewear_2_2);
+        panda1.btn = findViewById(R.id.panda_1_2);
+        panda2.btn = findViewById(R.id.panda_2_2);
+        rowlet1.btn = findViewById(R.id.rowlet_1);
+        rowlet2.btn = findViewById(R.id.rowlet_2);
 
         new CountDownTimer(3000,1000){
             @Override
@@ -61,6 +65,8 @@ public class CardGame2 extends AppCompatActivity {
                 bewear2.flipCard(R.drawable.back);
                 panda1.flipCard(R.drawable.back);
                 panda2.flipCard(R.drawable.back);
+                rowlet1.flipCard(R.drawable.back);
+                rowlet2.flipCard(R.drawable.back);
 
                 bee1.btn.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -228,6 +234,64 @@ public class CardGame2 extends AppCompatActivity {
                         }else if (panda2.flip && panda1.flip){
                             panda2.btn.setClickable(false);
                             panda1.btn.setClickable(false);
+                        }
+                    }
+                });
+
+                rowlet1.btn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if(!rowlet1.flip){
+                            rowlet1.flipCard(R.drawable.rowlet);
+                            cartas++;
+                            rowlet1.flip = true;
+                            if(flipped == null){
+                                flipped = rowlet1;
+                            }
+                            if(cartas == 2){
+                                handler.postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        checkCards2(rowlet1,rowlet2.flip,flipped);
+                                        flipped.flip = false;
+                                        flipped = null;
+                                        rowlet1.flip = false;
+                                        cartas = 0;
+                                    }
+                                },2000);
+                            }
+                        }else if(rowlet1.flip && rowlet2.flip){
+                            rowlet1.btn.setClickable(false);
+                            rowlet2.btn.setClickable(false);
+                        }
+                    }
+                });
+
+                rowlet2.btn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if(!rowlet2.flip){
+                            rowlet2.flipCard(R.drawable.rowlet);
+                            cartas++;
+                            rowlet2.flip = true;
+                            if(flipped == null){
+                                flipped = rowlet2;
+                            }
+                            if(cartas == 2){
+                                handler.postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        checkCards2(rowlet2,rowlet1.flip,flipped);
+                                        flipped.flip = false;
+                                        flipped = null;
+                                        rowlet2.flip = false;
+                                        cartas = 0;
+                                    }
+                                },2000);
+                            }
+                        }else if(rowlet2.flip && rowlet1.flip){
+                            rowlet2.btn.setClickable(false);
+                            rowlet1.btn.setClickable(false);
                         }
                     }
                 });
