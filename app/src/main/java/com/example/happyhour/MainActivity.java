@@ -2,22 +2,29 @@ package com.example.happyhour;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.Touch;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.happyhour.Controls.TouchScreenEvents;
 import com.example.happyhour.Estructura.Game_mode;
 import com.example.happyhour.Sparkles.ParticalView;
+import com.example.happyhour.Sparkles.Particle;
 
 public class MainActivity extends AppCompatActivity {
+
+    ParticalView contentView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ParticalView view = new ParticalView(this);
+        contentView = new ParticalView(this);
 
         //random
         final int wallpaperRandom = (int) (Math.random() * 5 + 1);
@@ -41,5 +48,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        Toast.makeText(this, "Aqui", Toast.LENGTH_LONG).show();
+        contentView.dispatchTouchEvent(event);
+        return super.onTouchEvent(event);
     }
 }

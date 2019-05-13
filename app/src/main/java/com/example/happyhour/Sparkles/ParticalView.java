@@ -57,7 +57,7 @@ public class ParticalView extends SurfaceView implements SurfaceHolder.Callback 
         if(mRecycleList.size()>1)
             recycleCount = 2;
         else
-            recycleCount =mRecycleList.size();
+            recycleCount = mRecycleList.size();
 
         for (int i = 0; i < recycleCount; i++) {
             p = mRecycleList.remove(0);
