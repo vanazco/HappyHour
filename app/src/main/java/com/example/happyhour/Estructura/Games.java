@@ -13,8 +13,7 @@ import com.example.happyhour.Games.Adri.Game2_1;
 import com.example.happyhour.Games.Adri.Game2_2;
 import com.example.happyhour.Games.Sebas.Game5_1;
 import com.example.happyhour.Games.Sebas.Game5_2;
-import com.example.happyhour.Games.Sebas.Game6_1;
-import com.example.happyhour.Games.Sebas.Game6_2;
+import com.example.happyhour.Games.Sebas.Pintar.Pintar;
 import com.example.happyhour.Games.Victor.Game3_1;
 import com.example.happyhour.Games.Victor.Game3_2;
 import com.example.happyhour.Games.Victor.CardGame1;
@@ -125,15 +124,9 @@ public class Games extends AppCompatActivity {
         btn6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(level == 1){
-                    intent = new Intent(Games.this, Game6_1.class);
-                    intent.putExtra("wallpaper", wallpaper);
-                    startActivity(intent);
-                }else{
-                    intent = new Intent(Games.this, Game6_2.class);
-                    intent.putExtra("wallpaper", wallpaper);
-                    startActivity(intent);
-                }
+                intent = new Intent(Games.this, Pintar.class);
+                intent.putExtra("wallpaper", wallpaper);
+                startActivity(intent);
             }
         });
     }

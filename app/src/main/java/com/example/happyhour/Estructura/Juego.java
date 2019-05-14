@@ -11,8 +11,7 @@ import com.example.happyhour.Games.Adri.Game2_1;
 import com.example.happyhour.Games.Adri.Game2_2;
 import com.example.happyhour.Games.Sebas.Game5_1;
 import com.example.happyhour.Games.Sebas.Game5_2;
-import com.example.happyhour.Games.Sebas.Game6_1;
-import com.example.happyhour.Games.Sebas.Game6_2;
+import com.example.happyhour.Games.Sebas.Pintar.Pintar;
 import com.example.happyhour.Games.Victor.Game3_1;
 import com.example.happyhour.Games.Victor.Game3_2;
 import com.example.happyhour.Games.Victor.CardGame1;
@@ -94,17 +93,10 @@ public class Juego extends AppCompatActivity {
                 startActivity(intent);
             }
         }else if(random == 6){
-            if(level == 1){
-                intent = new Intent(Juego.this, Game6_1.class);
-                Toast.makeText(this,"game6_1",Toast.LENGTH_SHORT).show();
-                intent.putExtra("wallpaper", wallpaper);
-                startActivity(intent);
-            }else{
-                intent = new Intent(Juego.this, Game6_2.class);
-                Toast.makeText(this,"game6_2",Toast.LENGTH_SHORT).show();
-                intent.putExtra("wallpaper", wallpaper);
-                startActivity(intent);
-            }
+            intent = new Intent(Juego.this, Pintar.class);
+            Toast.makeText(this,"game6_1",Toast.LENGTH_SHORT).show();
+            intent.putExtra("wallpaper", wallpaper);
+            startActivity(intent);
         }
     }
 }

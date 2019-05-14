@@ -15,7 +15,8 @@
         </activity>
         <activity
             android:name=".Estructura.Juego"
-            android:screenOrientation="landscape" />
+            android:screenOrientation="landscape"
+            />
         <activity
             android:name=".Games.Victor.CardGame2"
             android:noHistory="true"
@@ -33,11 +34,7 @@
             android:noHistory="true"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".Games.Sebas.Game6_2"
-            android:noHistory="true"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".Games.Sebas.Game6_1"
+            android:name=".Games.Sebas.Pintar.Pintar"
             android:noHistory="true"
             android:screenOrientation="landscape" />
         <activity

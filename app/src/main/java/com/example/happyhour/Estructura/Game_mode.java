@@ -32,8 +32,8 @@ public class Game_mode extends AppCompatActivity {
         findViewById(R.id.btn_games).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //intent = new Intent(Game_mode.this, Games.class);
-                intent = new Intent(Game_mode.this, ParticleActivity.class);
+                intent = new Intent(Game_mode.this, Games.class);
+                //intent = new Intent(Game_mode.this, ParticleActivity.class);
                 intent.putExtra("wallpaper", wallpaper);
                 startActivity(intent);
             }
