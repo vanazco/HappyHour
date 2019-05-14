@@ -8,8 +8,6 @@
 
     <include layout="@layout/fondo_pantalla" />
 
-    <include layout="@layout/onclick_screen" />
-
     <ImageButton
         android:id="@+id/game1"
         android:layout_width="195dp"

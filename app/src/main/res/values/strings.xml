@@ -13,4 +13,5 @@
     <string name="med">Medium</string>
     <string name="lrg">Large</string>
     <string name="camera_icon_for_camera_sound">Camera icon for camera sound</string>
+    <string name="wallpaper_image_for_all_the_app">Wallpaper image for all the app</string>
 </resources>

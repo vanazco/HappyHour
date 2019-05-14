@@ -1,14 +1,15 @@
 package com.example.happyhour.Games.Victor;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import com.example.happyhour.Estructura.Games;
-import com.example.happyhour.R;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.example.happyhour.Estructura.Games;
+import com.example.happyhour.R;
 
 public class CardGame1 extends AppCompatActivity {
 
@@ -30,6 +31,16 @@ public class CardGame1 extends AppCompatActivity {
         ImageView imageView = findViewById(R.id.fondoPantalla);
         //Get the resource ID
         imageView.setImageResource(wallpaper);
+
+        findViewById(R.id.goBack).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CardGame1.this, Games.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra("wallpaper", wallpaper);
+                startActivity(intent);
+            }
+        });
 
         cartas = 0;
 

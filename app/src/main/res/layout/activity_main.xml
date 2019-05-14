@@ -10,8 +10,6 @@
 
     <include layout="@layout/fondo_pantalla" />
 
-    <include layout="@layout/onclick_screen" />
-
     <ImageButton
         android:id="@+id/btn_start"
         android:layout_width="wrap_content"

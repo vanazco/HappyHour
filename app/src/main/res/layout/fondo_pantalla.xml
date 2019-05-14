@@ -8,6 +8,7 @@
         android:id="@+id/fondoPantalla"
         android:scaleType="fitXY"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:contentDescription="@string/wallpaper_image_for_all_the_app" />
 
 </android.support.constraint.ConstraintLayout>

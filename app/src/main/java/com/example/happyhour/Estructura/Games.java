@@ -14,12 +14,11 @@ import com.example.happyhour.Games.Adri.Game2_2;
 import com.example.happyhour.Games.Sebas.Game5_1;
 import com.example.happyhour.Games.Sebas.Game5_2;
 import com.example.happyhour.Games.Sebas.Pintar.Pintar;
-import com.example.happyhour.Games.Victor.Game3_1;
-import com.example.happyhour.Games.Victor.Game3_2;
 import com.example.happyhour.Games.Victor.CardGame1;
 import com.example.happyhour.Games.Victor.CardGame2;
+import com.example.happyhour.Games.Victor.Game3_1;
+import com.example.happyhour.Games.Victor.Game3_2;
 import com.example.happyhour.R;
-import com.example.happyhour.Controls.TouchScreenEvents;
 
 public class Games extends AppCompatActivity {
 
@@ -37,10 +36,6 @@ public class Games extends AppCompatActivity {
         ImageView imageView = findViewById(R.id.fondoPantalla);
         //Get the resource ID
         imageView.setImageResource(wallpaper);
-
-        ImageView click = findViewById(R.id.onclickAnimation);
-        findViewById(R.id.onclickPantalla).setOnTouchListener(TouchScreenEvents.touchListener());
-        findViewById(R.id.onclickPantalla).setOnClickListener(TouchScreenEvents.onClick(click));
 
         final int level = (int )(Math.random() * 2 + 1);
 
@@ -134,7 +129,7 @@ public class Games extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(this, Game_mode.class);
+        Intent intent = new Intent(this, GameMode.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.putExtra("wallpaper", wallpaper);
         startActivity(intent);
