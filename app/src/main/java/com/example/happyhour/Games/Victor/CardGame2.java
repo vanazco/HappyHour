@@ -59,14 +59,14 @@ public class CardGame2 extends AppCompatActivity {
             }
             @Override
             public void onFinish() {
-                bee1.flipCard(R.drawable.back);
-                bee2.flipCard(R.drawable.back);
-                bewear1.flipCard(R.drawable.back);
-                bewear2.flipCard(R.drawable.back);
-                panda1.flipCard(R.drawable.back);
-                panda2.flipCard(R.drawable.back);
-                rowlet1.flipCard(R.drawable.back);
-                rowlet2.flipCard(R.drawable.back);
+                bee1.flipCard(R.drawable.goback);
+                bee2.flipCard(R.drawable.goback);
+                bewear1.flipCard(R.drawable.goback);
+                bewear2.flipCard(R.drawable.goback);
+                panda1.flipCard(R.drawable.goback);
+                panda2.flipCard(R.drawable.goback);
+                rowlet1.flipCard(R.drawable.goback);
+                rowlet2.flipCard(R.drawable.goback);
 
                 bee1.btn.setOnClickListener(new View.OnClickListener() {
                     @Override

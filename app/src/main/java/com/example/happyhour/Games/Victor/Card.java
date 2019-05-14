@@ -32,8 +32,8 @@ public class Card {
     }
     public void checkCards(boolean card2,Card flipped){
         if(flip && !card2){
-            flipCard(R.drawable.back);
-            flipped.flipCard(R.drawable.back);
+            flipCard(R.drawable.goback);
+            flipped.flipCard(R.drawable.goback);
         }
     }
 }
