@@ -38,11 +38,7 @@
             android:noHistory="true"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".Games.Sebas.Game5_2"
-            android:noHistory="true"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".Games.Sebas.Game5_1"
+            android:name=".Games.Sebas.Puzzle.ChoosePuzzle"
             android:noHistory="true"
             android:screenOrientation="landscape" />
         <activity
@@ -77,6 +73,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Games.Sebas.Puzzle.PuzzleActivity"
+            android:screenOrientation="landscape"/>
     </application>
 
 </manifest>

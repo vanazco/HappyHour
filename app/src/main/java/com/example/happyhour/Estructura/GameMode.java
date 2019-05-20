@@ -27,7 +27,6 @@ public class GameMode extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 intent = new Intent(GameMode.this, Games.class);
-                //intent = new Intent(GameMode.this, ParticleActivity.class);
                 intent.putExtra("wallpaper", wallpaper);
                 startActivity(intent);
             }

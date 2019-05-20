@@ -9,13 +9,12 @@ import com.example.happyhour.Games.Adri.Game1_1;
 import com.example.happyhour.Games.Adri.Game1_2;
 import com.example.happyhour.Games.Adri.Game2_1;
 import com.example.happyhour.Games.Adri.Game2_2;
-import com.example.happyhour.Games.Sebas.Game5_1;
-import com.example.happyhour.Games.Sebas.Game5_2;
 import com.example.happyhour.Games.Sebas.Pintar.Pintar;
-import com.example.happyhour.Games.Victor.Game3_1;
-import com.example.happyhour.Games.Victor.Game3_2;
+import com.example.happyhour.Games.Sebas.Puzzle.ChoosePuzzle;
 import com.example.happyhour.Games.Victor.CardGame1;
 import com.example.happyhour.Games.Victor.CardGame2;
+import com.example.happyhour.Games.Victor.Game3_1;
+import com.example.happyhour.Games.Victor.Game3_2;
 import com.example.happyhour.R;
 
 public class Juego extends AppCompatActivity {
@@ -59,42 +58,29 @@ public class Juego extends AppCompatActivity {
         }else if(random == 3){
             if(level == 1){
                 intent = new Intent(Juego.this, Game3_1.class);
-                Toast.makeText(this,"game3_1",Toast.LENGTH_SHORT).show();
                 intent.putExtra("wallpaper", wallpaper);
                 startActivity(intent);
             }else{
                 intent = new Intent(Juego.this, Game3_2.class);
-                Toast.makeText(this,"game3_2",Toast.LENGTH_SHORT).show();
                 intent.putExtra("wallpaper", wallpaper);
                 startActivity(intent);
             }
         }else if(random == 4){
             if(level == 1){
                 intent = new Intent(Juego.this, CardGame1.class);
-                Toast.makeText(this,"game4_1",Toast.LENGTH_SHORT).show();
                 intent.putExtra("wallpaper", wallpaper);
                 startActivity(intent);
             }else{
                 intent = new Intent(Juego.this, CardGame2.class);
-                Toast.makeText(this,"game4_2",Toast.LENGTH_SHORT).show();
                 intent.putExtra("wallpaper", wallpaper);
                 startActivity(intent);
             }
         }else if(random == 5){
-            if(level == 1){
-                intent = new Intent(Juego.this, Game5_1.class);
-                Toast.makeText(this,"game5_1",Toast.LENGTH_SHORT).show();
-                intent.putExtra("wallpaper", wallpaper);
-                startActivity(intent);
-            }else{
-                intent = new Intent(Juego.this, Game5_2.class);
-                Toast.makeText(this,"game5_2",Toast.LENGTH_SHORT).show();
-                intent.putExtra("wallpaper", wallpaper);
-                startActivity(intent);
-            }
+            intent = new Intent(Juego.this, ChoosePuzzle.class);
+            intent.putExtra("wallpaper", wallpaper);
+            startActivity(intent);
         }else if(random == 6){
             intent = new Intent(Juego.this, Pintar.class);
-            Toast.makeText(this,"game6_1",Toast.LENGTH_SHORT).show();
             intent.putExtra("wallpaper", wallpaper);
             startActivity(intent);
         }
