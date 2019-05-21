@@ -44,12 +44,12 @@ public class CardGame1 extends AppCompatActivity {
 
         cartas = 0;
 
-        bee1 = new Card();
-        bee2 = new Card();
-        bewear1 = new Card();
-        bewear2 = new Card();
-        panda1 = new Card();
-        panda2 = new Card();
+        bee1 = new Card(getApplicationContext());
+        bee2 = new Card(getApplicationContext());
+        bewear1 = new Card(getApplicationContext());
+        bewear2 = new Card(getApplicationContext());
+        panda1 = new Card(getApplicationContext());
+        panda2 = new Card(getApplicationContext());
 
         handler = new Handler();
 

@@ -3,6 +3,8 @@ package com.example.happyhour.Games.Victor;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
+import android.content.Context;
+import android.media.MediaPlayer;
 import android.widget.ImageButton;
 
 import com.example.happyhour.R;
@@ -11,9 +13,11 @@ public class Card {
 
     ImageButton btn;
     boolean flip;
+    MediaPlayer mp;
 
-    public Card(){
+    public Card(Context context){
         flip = false;
+        mp = MediaPlayer.create(context,R.raw.error_sound);
     }
 
     public void flipCard(final int p) {
@@ -34,6 +38,7 @@ public class Card {
         if(flip && !card2){
             flipCard(R.drawable.back);
             flipped.flipCard(R.drawable.back);
+            mp.start();
         }
     }
 }
