@@ -26,11 +26,7 @@
             android:noHistory="true"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".Games.Victor.Game3_2"
-            android:noHistory="true"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".Games.Victor.Game3_1"
+            android:name=".Games.Victor.LetterGame"
             android:noHistory="true"
             android:screenOrientation="landscape" />
         <activity

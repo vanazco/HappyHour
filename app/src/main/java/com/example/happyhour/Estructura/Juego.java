@@ -13,8 +13,7 @@ import com.example.happyhour.Games.Sebas.Pintar.Pintar;
 import com.example.happyhour.Games.Sebas.Puzzle.ChoosePuzzle;
 import com.example.happyhour.Games.Victor.CardGame1;
 import com.example.happyhour.Games.Victor.CardGame2;
-import com.example.happyhour.Games.Victor.Game3_1;
-import com.example.happyhour.Games.Victor.Game3_2;
+import com.example.happyhour.Games.Victor.LetterGame;
 import com.example.happyhour.R;
 
 public class Juego extends AppCompatActivity {
@@ -56,15 +55,9 @@ public class Juego extends AppCompatActivity {
                 startActivity(intent);
             }
         }else if(random == 3){
-            if(level == 1){
-                intent = new Intent(Juego.this, Game3_1.class);
+                intent = new Intent(Juego.this, LetterGame.class);
                 intent.putExtra("wallpaper", wallpaper);
                 startActivity(intent);
-            }else{
-                intent = new Intent(Juego.this, Game3_2.class);
-                intent.putExtra("wallpaper", wallpaper);
-                startActivity(intent);
-            }
         }else if(random == 4){
             if(level == 1){
                 intent = new Intent(Juego.this, CardGame1.class);

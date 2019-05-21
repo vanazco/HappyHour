@@ -15,8 +15,7 @@ import com.example.happyhour.Games.Sebas.Pintar.Pintar;
 import com.example.happyhour.Games.Sebas.Puzzle.ChoosePuzzle;
 import com.example.happyhour.Games.Victor.CardGame1;
 import com.example.happyhour.Games.Victor.CardGame2;
-import com.example.happyhour.Games.Victor.Game3_1;
-import com.example.happyhour.Games.Victor.Game3_2;
+import com.example.happyhour.Games.Victor.LetterGame;
 import com.example.happyhour.R;
 
 public class Games extends AppCompatActivity {
@@ -76,15 +75,9 @@ public class Games extends AppCompatActivity {
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(level == 1){
-                    intent = new Intent(Games.this, Game3_1.class);
+                    intent = new Intent(Games.this, LetterGame.class);
                     intent.putExtra("wallpaper", wallpaper);
                     startActivity(intent);
-                }else{
-                    intent = new Intent(Games.this, Game3_2.class);
-                    intent.putExtra("wallpaper", wallpaper);
-                    startActivity(intent);
-                }
             }
         });
         btn4.setOnClickListener(new View.OnClickListener() {
