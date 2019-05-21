@@ -274,7 +274,7 @@ public class LetterGame extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animator animation, boolean isReverse) {
                 //Comprobamos si la imagen de la letra es igual a la oculta
-                if(letter.img.getBackground().getConstantState() == empty.img.getBackground().getConstantState() && random < 2){
+                if(letter.img.getBackground().getConstantState() == empty.img.getBackground().getConstantState() && random <= 2){
                     letter.correct = true;
                     firstLetter = true;
                     mp[2].start();
