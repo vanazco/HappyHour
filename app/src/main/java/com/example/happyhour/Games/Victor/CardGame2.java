@@ -82,7 +82,7 @@ public class CardGame2 extends AppCompatActivity {
                 bee1.btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(!bee1.flip){
+                        if(!bee1.flip && cartas < 2){
                             bee1.flipCard(R.drawable.bee);
                             cartas++;
                             bee1.flip = true;
@@ -111,7 +111,7 @@ public class CardGame2 extends AppCompatActivity {
                 bee2.btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(!bee2.flip){
+                        if(!bee2.flip && cartas < 2){
                             bee2.flipCard(R.drawable.bee);
                             cartas++;
                             bee2.flip = true;
@@ -139,7 +139,7 @@ public class CardGame2 extends AppCompatActivity {
                 bewear1.btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(!bewear1.flip){
+                        if(!bewear1.flip && cartas < 2){
                             bewear1.flipCard(R.drawable.bewear);
                             cartas++;
                             bewear1.flip = true;
@@ -167,7 +167,7 @@ public class CardGame2 extends AppCompatActivity {
                 bewear2.btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(!bewear2.flip){
+                        if(!bewear2.flip && cartas < 2){
                             bewear2.flipCard(R.drawable.bewear);
                             cartas++;
                             bewear2.flip = true;
@@ -195,7 +195,7 @@ public class CardGame2 extends AppCompatActivity {
                 panda1.btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(!panda1.flip){
+                        if(!panda1.flip && cartas < 2){
                             panda1.flipCard(R.drawable.panda);
                             cartas++;
                             panda1.flip = true;
@@ -223,7 +223,7 @@ public class CardGame2 extends AppCompatActivity {
                 panda2.btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(!panda2.flip){
+                        if(!panda2.flip && cartas < 2){
                             panda2.flipCard(R.drawable.panda);
                             cartas++;
                             panda2.flip = true;
@@ -252,7 +252,7 @@ public class CardGame2 extends AppCompatActivity {
                 rowlet1.btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(!rowlet1.flip){
+                        if(!rowlet1.flip && cartas < 2){
                             rowlet1.flipCard(R.drawable.rowlet);
                             cartas++;
                             rowlet1.flip = true;
@@ -281,7 +281,7 @@ public class CardGame2 extends AppCompatActivity {
                 rowlet2.btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(!rowlet2.flip){
+                        if(!rowlet2.flip && cartas < 2){
                             rowlet2.flipCard(R.drawable.rowlet);
                             cartas++;
                             rowlet2.flip = true;

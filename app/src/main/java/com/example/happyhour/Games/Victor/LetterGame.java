@@ -87,6 +87,16 @@ public class LetterGame extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.goBack).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LetterGame.this, Games.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra("wallpaper", wallpaper);
+                startActivity(intent);
+            }
+        });
+
         //Definimos los Listeners
         a.img.setOnClickListener(new View.OnClickListener() {
             @Override

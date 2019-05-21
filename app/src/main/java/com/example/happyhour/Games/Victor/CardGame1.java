@@ -60,6 +60,7 @@ public class CardGame1 extends AppCompatActivity {
         panda1.btn = findViewById(R.id.panda_1);
         panda2.btn = findViewById(R.id.panda_2);
 
+
         new CountDownTimer(3000,1000){
             @Override
             public void onTick(long millisUntilFinished) {
@@ -73,10 +74,13 @@ public class CardGame1 extends AppCompatActivity {
                 panda1.flipCard(R.drawable.back);
                 panda2.flipCard(R.drawable.back);
 
+                bee1.btn.setMaxWidth(120);
+                bee2.btn.setMaxWidth(120);
+
                 bee1.btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(!bee1.flip){
+                        if(!bee1.flip && cartas < 2){
                             bee1.flipCard(R.drawable.bee);
                             cartas++;
                             bee1.flip = true;
@@ -105,7 +109,7 @@ public class CardGame1 extends AppCompatActivity {
                 bee2.btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(!bee2.flip){
+                        if(!bee2.flip && cartas < 2){
                             bee2.flipCard(R.drawable.bee);
                             cartas++;
                             bee2.flip = true;
@@ -130,10 +134,11 @@ public class CardGame1 extends AppCompatActivity {
                         }
                     }
                 });
+
                 bewear1.btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(!bewear1.flip){
+                        if(!bewear1.flip && cartas < 2){
                             bewear1.flipCard(R.drawable.bewear);
                             cartas++;
                             bewear1.flip = true;
@@ -158,10 +163,11 @@ public class CardGame1 extends AppCompatActivity {
                         }
                     }
                 });
+
                 bewear2.btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(!bewear2.flip){
+                        if(!bewear2.flip && cartas < 2){
                             bewear2.flipCard(R.drawable.bewear);
                             cartas++;
                             bewear2.flip = true;
@@ -189,7 +195,7 @@ public class CardGame1 extends AppCompatActivity {
                 panda1.btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(!panda1.flip){
+                        if(!panda1.flip && cartas < 2){
                             panda1.flipCard(R.drawable.panda);
                             cartas++;
                             panda1.flip = true;
@@ -217,7 +223,7 @@ public class CardGame1 extends AppCompatActivity {
                 panda2.btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(!panda2.flip){
+                        if(!panda2.flip && cartas < 2){
                             panda2.flipCard(R.drawable.panda);
                             cartas++;
                             panda2.flip = true;
