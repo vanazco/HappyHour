@@ -6,30 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".Games.Sebas.Puzzle.PuzzleActivity">
 
-    <include layout="@layout/fondo_pantalla"/>
+    <include
+        android:id="@+id/include5"
+        layout="@layout/fondo_pantalla" />
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:alpha="1.0"
         app:layout_constraintDimensionRatio="H,4:5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/puzzle_frame" />
+        app:srcCompat="@drawable/frame" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="311dp"
-        android:layout_height="394dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="491dp"
+        android:layout_height="383dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:alpha="0.5"
         android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="@+id/layout"
         app:layout_constraintDimensionRatio="H,4:5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/layout"
+        app:layout_constraintStart_toStartOf="@+id/layout"
         app:layout_constraintTop_toTopOf="parent" />
 
     <RelativeLayout
@@ -44,8 +49,8 @@
 
     <ImageButton
         android:id="@+id/pintarGoBack"
-        android:layout_width="101dp"
-        android:layout_height="83dp"
+        android:layout_width="91dp"
+        android:layout_height="77dp"
         android:background="@android:color/transparent"
         android:src="@drawable/goback"
         app:layout_constraintStart_toStartOf="parent"

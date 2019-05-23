@@ -46,7 +46,7 @@ public class ChoosePuzzle extends AppCompatActivity {
                 }
             });
         } catch (IOException e) {
-            Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_SHORT);
+            Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 
