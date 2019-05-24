@@ -21,7 +21,7 @@ public class GameMode extends AppCompatActivity {
 
         ImageView imageView = findViewById(R.id.fondoPantalla);
         //Get the resource ID
-        imageView.setImageResource(wallpaper);
+//        imageView.setImageResource(wallpaper);
 
         findViewById(R.id.btn_games).setOnClickListener(new View.OnClickListener() {
             @Override

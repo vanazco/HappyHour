@@ -3,7 +3,6 @@ package com.example.happyhour.Estructura;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
 
 import com.example.happyhour.Games.Adri.Game1_1;
 import com.example.happyhour.Games.Adri.Game1_2;
@@ -33,24 +32,20 @@ public class Juego extends AppCompatActivity {
         if(random == 1){
             if(level == 1){
                 intent = new Intent(Juego.this, Game1_1.class);
-                Toast.makeText(this,"game1_1",Toast.LENGTH_SHORT).show();
                 intent.putExtra("wallpaper", wallpaper);
                 startActivity(intent);
             }else{
                 intent = new Intent(Juego.this, Game1_2.class);
-                Toast.makeText(this,"game1_2",Toast.LENGTH_SHORT).show();
                 intent.putExtra("wallpaper", wallpaper);
                 startActivity(intent);
             }
         }else if(random == 2){
             if(level == 1){
                 intent = new Intent(Juego.this, Game2_1.class);
-                Toast.makeText(this,"game2_1",Toast.LENGTH_SHORT).show();
                 intent.putExtra("wallpaper", wallpaper);
                 startActivity(intent);
             }else{
                 intent = new Intent(Juego.this, Game2_2.class);
-                Toast.makeText(this,"game2_2",Toast.LENGTH_SHORT).show();
                 intent.putExtra("wallpaper", wallpaper);
                 startActivity(intent);
             }

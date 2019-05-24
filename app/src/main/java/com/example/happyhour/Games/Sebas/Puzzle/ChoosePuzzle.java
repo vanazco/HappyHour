@@ -28,7 +28,7 @@ public class ChoosePuzzle extends AppCompatActivity {
 
         ImageView imageView = findViewById(R.id.fondoPantalla);
         //Get the resource ID
-        imageView.setImageResource(wallpaper);
+//        imageView.setImageResource(wallpaper);
 
         AssetManager am = getAssets();
         try {

@@ -8,21 +8,22 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <include layout="@layout/fondo_pantalla" />
+    <include
+        android:id="@+id/include6"
+        layout="@layout/fondo_pantalla" />
 
     <ImageButton
         android:id="@+id/btn_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="264dp"
-        android:layout_marginTop="137dp"
-        android:layout_marginEnd="265dp"
-        android:layout_marginBottom="137dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:background="#00FFFFFF"
-        android:src="@drawable/playbutton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/boton_play"
+        app:layout_constraintBottom_toBottomOf="@+id/include6"
+        app:layout_constraintEnd_toEndOf="@+id/include6"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/include6" />
 
 </android.support.constraint.ConstraintLayout>

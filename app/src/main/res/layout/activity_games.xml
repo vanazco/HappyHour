@@ -10,8 +10,8 @@
 
     <ImageButton
         android:id="@+id/game1"
-        android:layout_width="195dp"
-        android:layout_height="159dp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
         android:layout_marginStart="64dp"
         android:layout_marginTop="32dp"
         android:background="#00FFFFFF"
@@ -21,8 +21,8 @@
 
     <ImageButton
         android:id="@+id/game2"
-        android:layout_width="195dp"
-        android:layout_height="159dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:background="#00FFFFFF"
@@ -32,20 +32,20 @@
 
     <ImageButton
         android:id="@+id/game3"
-        android:layout_width="195dp"
-        android:layout_height="159dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:background="#00FFFFFF"
-        android:src="@drawable/abc_game"
+        android:src="@drawable/abc_games"
         app:layout_constraintStart_toEndOf="@+id/game1"
         app:layout_constraintTop_toBottomOf="@+id/game5" />
 
 
     <ImageButton
         android:id="@+id/game4"
-        android:layout_width="195dp"
-        android:layout_height="159dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:background="#00FFFFFF"
@@ -55,8 +55,8 @@
 
     <ImageButton
         android:id="@+id/game5"
-        android:layout_width="195dp"
-        android:layout_height="159dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:background="#00FFFFFF"
@@ -66,8 +66,8 @@
 
     <ImageButton
         android:id="@+id/game6"
-        android:layout_width="195dp"
-        android:layout_height="159dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
         android:layout_marginTop="32dp"
         android:background="#00FFFFFF"

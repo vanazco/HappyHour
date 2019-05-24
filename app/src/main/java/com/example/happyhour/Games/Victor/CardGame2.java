@@ -30,7 +30,7 @@ public class CardGame2 extends AppCompatActivity {
 
         ImageView imageView = findViewById(R.id.fondoPantalla);
         //Get the resource ID
-        imageView.setImageResource(wallpaper);
+//        imageView.setImageResource(wallpaper);
 
         findViewById(R.id.goBack).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,14 +70,14 @@ public class CardGame2 extends AppCompatActivity {
             }
             @Override
             public void onFinish() {
-                bee1.flipCard(R.drawable.back);
-                bee2.flipCard(R.drawable.back);
-                bewear1.flipCard(R.drawable.back);
-                bewear2.flipCard(R.drawable.back);
-                panda1.flipCard(R.drawable.back);
-                panda2.flipCard(R.drawable.back);
-                rowlet1.flipCard(R.drawable.back);
-                rowlet2.flipCard(R.drawable.back);
+                bee1.flipCard(R.drawable.fondo_carta);
+                bee2.flipCard(R.drawable.fondo_carta);
+                bewear1.flipCard(R.drawable.fondo_carta);
+                bewear2.flipCard(R.drawable.fondo_carta);
+                panda1.flipCard(R.drawable.fondo_carta);
+                panda2.flipCard(R.drawable.fondo_carta);
+                rowlet1.flipCard(R.drawable.fondo_carta);
+                rowlet2.flipCard(R.drawable.fondo_carta);
 
                 bee1.btn.setOnClickListener(new View.OnClickListener() {
                     @Override

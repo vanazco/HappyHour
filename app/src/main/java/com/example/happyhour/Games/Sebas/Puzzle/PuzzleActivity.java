@@ -45,7 +45,7 @@ public class PuzzleActivity extends AppCompatActivity {
 
         ImageView fondo = findViewById(R.id.fondoPantalla);
         //Get the resource ID
-        fondo.setImageResource(wallpaper);
+//        fondo.setImageResource(wallpaper);
 
         final RelativeLayout layout = findViewById(R.id.layout);
         final ImageView imageView = findViewById(R.id.imageView);

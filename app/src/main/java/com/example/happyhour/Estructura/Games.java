@@ -33,7 +33,7 @@ public class Games extends AppCompatActivity {
 
         ImageView imageView = findViewById(R.id.fondoPantalla);
         //Get the resource ID
-        imageView.setImageResource(wallpaper);
+//        imageView.setImageResource(wallpaper);
 
         final int level = (int )(Math.random() * 2 + 1);
 

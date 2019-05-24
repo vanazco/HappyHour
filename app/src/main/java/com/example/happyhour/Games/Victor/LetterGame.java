@@ -69,7 +69,7 @@ public class LetterGame extends AppCompatActivity {
         image = findViewById(R.id.imageView);
         fondo = findViewById(R.id.fondoPantalla);
 
-        fondo.setImageResource(wallpaper);
+//        fondo.setImageResource(wallpaper);
 
         image.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         ImageView imageView = findViewById(R.id.fondoPantalla);
         //Get the resource ID
-        imageView.setImageResource(wallPaper.getWallpaper().get(wallpaperRandom));
+//        imageView.setImageResource(wallPaper.getWallpaper().get(wallpaperRandom));
 
         findViewById(R.id.btn_start).setOnClickListener(new View.OnClickListener() {
             @Override
