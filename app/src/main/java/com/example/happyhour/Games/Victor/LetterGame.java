@@ -12,8 +12,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.example.happyhour.Estructura.Game;
 import com.example.happyhour.Estructura.Games;
 import com.example.happyhour.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.UUID;
 
 public class LetterGame extends AppCompatActivity {
 
@@ -24,10 +31,17 @@ public class LetterGame extends AppCompatActivity {
     ImageView image,fondo;
     MediaPlayer[] mp;
     int random;
+    private Date inicio;
+    public Game game;
+    public DatabaseReference mRef;
+    public int id_game = 6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        inicio = Calendar.getInstance().getTime();
+        mRef = FirebaseDatabase.getInstance().getReference();
 
         //random para elegir el layout que saldrá
         random = (int) (Math.random() * 3 + 1);
@@ -86,8 +100,11 @@ public class LetterGame extends AppCompatActivity {
         findViewById(R.id.goBack).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String id = UUID.randomUUID().toString();
                 Intent intent = new Intent(LetterGame.this, Games.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                game = new Game(id,inicio,Calendar.getInstance().getTime(),id_game);
+                mRef.child("Games").child(id).setValue(game);
                 startActivity(intent);
             }
         });
@@ -310,8 +327,11 @@ public class LetterGame extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        String id = UUID.randomUUID().toString();
         Intent intent = new Intent(this, Games.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        game = new Game(id,inicio,Calendar.getInstance().getTime(),id_game);
+        mRef.child("Games").child(id).setValue(game);
         startActivity(intent);
     }
 }

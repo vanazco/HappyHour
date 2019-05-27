@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 
 import com.example.happyhour.Games.Adri.Game1_1;
 import com.example.happyhour.Games.Adri.Game1_2;
@@ -24,6 +23,7 @@ public class Games extends AppCompatActivity {
     private Intent intent;
     private static int wallpaper;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,11 +31,10 @@ public class Games extends AppCompatActivity {
 
         wallpaper = getIntent().getIntExtra("wallpaper", 1);
 
-        ImageView imageView = findViewById(R.id.fondoPantalla);
-        //Get the resource ID
-//        imageView.setImageResource(wallpaper);
 
         final int level = (int )(Math.random() * 2 + 1);
+
+
 
         btn1 = findViewById(R.id.game1);
         btn2 = findViewById(R.id.game2);

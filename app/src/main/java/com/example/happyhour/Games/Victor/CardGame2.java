@@ -1,6 +1,7 @@
 package com.example.happyhour.Games.Victor;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -16,7 +17,8 @@ public class CardGame2 extends AppCompatActivity {
     int cartas;
     Card flipped;
     Handler handler;
-
+    MediaPlayer mp;
+    public int id_game = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,7 @@ public class CardGame2 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        mp = MediaPlayer.create(CardGame2.this,R.raw.win_effect);
 
         cartas = 0;
 
@@ -311,5 +314,8 @@ public class CardGame2 extends AppCompatActivity {
 
     public void checkCards2(Card card,Boolean flipped,Card card_flip){
         card.checkCards(flipped,card_flip);
+    }
+
+    public void checkWinner(){
     }
 }

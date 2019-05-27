@@ -4,9 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ImageView;
 
 import com.example.happyhour.HelpActivity;
+import com.example.happyhour.Information;
 import com.example.happyhour.R;
 
 public class GameMode extends AppCompatActivity {
@@ -17,17 +17,10 @@ public class GameMode extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_mode);
 
-        final int wallpaper = getIntent().getIntExtra("wallpaper", 1);
-
-        ImageView imageView = findViewById(R.id.fondoPantalla);
-        //Get the resource ID
-//        imageView.setImageResource(wallpaper);
-
         findViewById(R.id.btn_games).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 intent = new Intent(GameMode.this, Games.class);
-                intent.putExtra("wallpaper", wallpaper);
                 startActivity(intent);
             }
         });
@@ -35,8 +28,7 @@ public class GameMode extends AppCompatActivity {
         findViewById(R.id.btn_random).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(GameMode.this, Juego.class);
-                intent.putExtra("wallpaper", wallpaper);
+                intent = new Intent(GameMode.this, RandomGame.class);
                 startActivity(intent);
             }
         });
@@ -45,7 +37,13 @@ public class GameMode extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 intent = new Intent(GameMode.this, HelpActivity.class);
-                intent.putExtra("wallpaper", wallpaper);
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.btn_bbdd).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(GameMode.this, Information.class);
                 startActivity(intent);
             }
         });

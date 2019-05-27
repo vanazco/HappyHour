@@ -17,6 +17,8 @@ import com.example.happyhour.R;
 
 public class DrawingView extends View {
 
+    public int id = 3;
+
     //drawing path
     private Path drawPath;
     //drawing and canvas paint
