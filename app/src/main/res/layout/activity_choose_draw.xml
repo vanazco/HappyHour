@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Games.Sebas.Puzzle.ChoosePuzzle">
+    tools:context=".Games.Sebas.Pintar.ChooseDraw">
 
     <include layout="@layout/fondo_pantalla"/>
 
@@ -12,8 +12,8 @@
         android:id="@+id/goBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:background="@android:color/transparent"
         android:src="@drawable/goback"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,8 +21,8 @@
 
     <GridView
         android:id="@+id/grid"
-        android:layout_width="739dp"
-        android:layout_height="317dp"
+        android:layout_width="729dp"
+        android:layout_height="318dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"

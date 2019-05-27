@@ -83,7 +83,7 @@ public class PuzzleActivity extends AppCompatActivity {
 
         AssetManager am = getAssets();
         try {
-            InputStream is = am.open("img/" + assetName);
+            InputStream is = am.open("puzzle/" + assetName);
             // Get the dimensions of the bitmap
             BitmapFactory.Options bmOptions = new BitmapFactory.Options();
             bmOptions.inJustDecodeBounds = true;

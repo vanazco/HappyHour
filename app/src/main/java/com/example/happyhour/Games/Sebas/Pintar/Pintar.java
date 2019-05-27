@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.graphics.drawable.Drawable;
 import android.media.MediaActionSound;
 import android.os.Bundle;
@@ -16,15 +17,18 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
-import com.example.happyhour.Estructura.Games;
 import com.example.happyhour.R;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 public class Pintar extends AppCompatActivity implements View.OnClickListener {
 
     private DrawingView drawView;
-    private ImageButton currPaint, drawBtn, eraseBtn, newBtn;
+    private ImageButton currPaint;
     private float smallBrush, mediumBrush, largeBrush;
     private FrameLayout pnlFlash;
+    private Drawable drawable;
 
     @SuppressLint("NewApi")
     @Override
@@ -32,30 +36,34 @@ public class Pintar extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.flash);
 
-        eraseBtn = (ImageButton)findViewById(R.id.erase_btn);
+        Intent intent = getIntent();
+        final String assetName = intent.getStringExtra("assetName");
+
+        try {
+            InputStream inputStream = getAssets().open("dibujo/" + assetName);
+            drawable = Drawable.createFromStream(inputStream, null);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        ImageButton eraseBtn = findViewById(R.id.erase_btn);
         eraseBtn.setOnClickListener(this);
 
-        newBtn = (ImageButton)findViewById(R.id.new_btn);
+        ImageButton newBtn = findViewById(R.id.new_btn);
         newBtn.setOnClickListener(this);
 
         smallBrush = getResources().getInteger(R.integer.small_size);
         mediumBrush = getResources().getInteger(R.integer.medium_size);
         largeBrush = getResources().getInteger(R.integer.large_size);
 
-        drawView = (DrawingView)findViewById(R.id.drawing);
-
-        //random
-        int imagenRandom = (int) (Math.random() * 4 + 1);
-        Imagenes imagenes = new Imagenes();
-
-        Drawable drawable = getResources().getDrawable(imagenes.getWallpaper().get(imagenRandom));
+        drawView = findViewById(R.id.drawing);
 
         drawView.setForeground(drawable);
 
-        drawBtn = (ImageButton)findViewById(R.id.draw_btn);
+        ImageButton drawBtn = findViewById(R.id.draw_btn);
         drawBtn.setOnClickListener(this);
 
-        LinearLayout paintLayout = (LinearLayout)findViewById(R.id.paint_colors);
+        LinearLayout paintLayout = findViewById(R.id.paint_colors);
 
         currPaint = (ImageButton)paintLayout.getChildAt(0);
         currPaint.setImageDrawable(getResources().getDrawable(R.drawable.paint_pressed));
@@ -93,7 +101,7 @@ public class Pintar extends AppCompatActivity implements View.OnClickListener {
         findViewById(R.id.pintarGoBack).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Pintar.this, Games.class);
+                Intent intent = new Intent(Pintar.this, ChooseDraw.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
@@ -126,7 +134,7 @@ public class Pintar extends AppCompatActivity implements View.OnClickListener {
             brushDialog.setTitle("Brush size:");
             brushDialog.setContentView(R.layout.brush_chooser);
 
-            ImageButton smallBtn = (ImageButton)brushDialog.findViewById(R.id.small_brush);
+            ImageButton smallBtn = brushDialog.findViewById(R.id.small_brush);
             smallBtn.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
@@ -136,7 +144,7 @@ public class Pintar extends AppCompatActivity implements View.OnClickListener {
                 }
             });
 
-            ImageButton mediumBtn = (ImageButton)brushDialog.findViewById(R.id.medium_brush);
+            ImageButton mediumBtn = brushDialog.findViewById(R.id.medium_brush);
             mediumBtn.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
@@ -146,7 +154,7 @@ public class Pintar extends AppCompatActivity implements View.OnClickListener {
                 }
             });
 
-            ImageButton largeBtn = (ImageButton)brushDialog.findViewById(R.id.large_brush);
+            ImageButton largeBtn = brushDialog.findViewById(R.id.large_brush);
             largeBtn.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
@@ -163,7 +171,7 @@ public class Pintar extends AppCompatActivity implements View.OnClickListener {
             brushDialog.setTitle("Eraser size:");
             brushDialog.setContentView(R.layout.brush_chooser);
 
-            ImageButton smallBtn = (ImageButton) brushDialog.findViewById(R.id.small_brush);
+            ImageButton smallBtn =  brushDialog.findViewById(R.id.small_brush);
             smallBtn.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
@@ -172,7 +180,7 @@ public class Pintar extends AppCompatActivity implements View.OnClickListener {
                     brushDialog.dismiss();
                 }
             });
-            ImageButton mediumBtn = (ImageButton) brushDialog.findViewById(R.id.medium_brush);
+            ImageButton mediumBtn =  brushDialog.findViewById(R.id.medium_brush);
             mediumBtn.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
@@ -181,7 +189,7 @@ public class Pintar extends AppCompatActivity implements View.OnClickListener {
                     brushDialog.dismiss();
                 }
             });
-            ImageButton largeBtn = (ImageButton) brushDialog.findViewById(R.id.large_brush);
+            ImageButton largeBtn =  brushDialog.findViewById(R.id.large_brush);
             largeBtn.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
@@ -214,7 +222,7 @@ public class Pintar extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(this, Games.class);
+        Intent intent = new Intent(this, ChooseDraw.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
