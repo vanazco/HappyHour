@@ -13,8 +13,6 @@ import com.example.happyhour.R;
 
 public class CardGame1 extends AppCompatActivity {
 
-    static int wallpaper;
-
     Card bee1, bee2, bewear1, bewear2, panda1, panda2;
     int cartas;
     Card flipped;
@@ -26,8 +24,6 @@ public class CardGame1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.card_game);
 
-        wallpaper = getIntent().getIntExtra("wallpaper", 1);
-
         ImageView imageView = findViewById(R.id.fondoPantalla);
         //Get the resource ID
 //        imageView.setImageResource(wallpaper);
@@ -37,7 +33,6 @@ public class CardGame1 extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(CardGame1.this, Games.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra("wallpaper", wallpaper);
                 startActivity(intent);
             }
         });
@@ -257,7 +252,6 @@ public class CardGame1 extends AppCompatActivity {
         super.onBackPressed();
         Intent intent = new Intent(this, Games.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.putExtra("wallpaper", wallpaper);
         startActivity(intent);
     }
 

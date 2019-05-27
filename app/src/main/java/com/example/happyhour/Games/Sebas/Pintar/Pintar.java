@@ -21,7 +21,6 @@ import com.example.happyhour.R;
 
 public class Pintar extends AppCompatActivity implements View.OnClickListener {
 
-    static int wallpaper;
     private DrawingView drawView;
     private ImageButton currPaint, drawBtn, eraseBtn, newBtn;
     private float smallBrush, mediumBrush, largeBrush;
@@ -32,8 +31,6 @@ public class Pintar extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.flash);
-
-        wallpaper = getIntent().getIntExtra("wallpaper", 1);
 
         eraseBtn = (ImageButton)findViewById(R.id.erase_btn);
         eraseBtn.setOnClickListener(this);
@@ -98,7 +95,6 @@ public class Pintar extends AppCompatActivity implements View.OnClickListener {
             public void onClick(View v) {
                 Intent intent = new Intent(Pintar.this, Games.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra("wallpaper", wallpaper);
                 startActivity(intent);
             }
         });
@@ -220,7 +216,6 @@ public class Pintar extends AppCompatActivity implements View.OnClickListener {
         super.onBackPressed();
         Intent intent = new Intent(this, Games.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.putExtra("wallpaper", wallpaper);
         startActivity(intent);
     }
 }

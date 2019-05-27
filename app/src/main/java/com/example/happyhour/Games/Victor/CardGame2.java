@@ -6,14 +6,11 @@ import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ImageView;
 
 import com.example.happyhour.Estructura.Games;
 import com.example.happyhour.R;
 
 public class CardGame2 extends AppCompatActivity {
-
-    static int wallpaper;
 
     Card bee1, bee2, bewear1, bewear2, panda1, panda2,rowlet1,rowlet2;
     int cartas;
@@ -26,18 +23,12 @@ public class CardGame2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.card_game2);
 
-        wallpaper = getIntent().getIntExtra("wallpaper", 1);
-
-        ImageView imageView = findViewById(R.id.fondoPantalla);
-        //Get the resource ID
-//        imageView.setImageResource(wallpaper);
 
         findViewById(R.id.goBack).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CardGame2.this, Games.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra("wallpaper", wallpaper);
                 startActivity(intent);
             }
         });
@@ -315,7 +306,6 @@ public class CardGame2 extends AppCompatActivity {
         super.onBackPressed();
         Intent intent = new Intent(this, Games.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.putExtra("wallpaper", wallpaper);
         startActivity(intent);
     }
 

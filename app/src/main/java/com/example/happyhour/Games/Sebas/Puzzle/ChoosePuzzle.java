@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.happyhour.Estructura.Games;
@@ -17,18 +16,10 @@ import java.io.IOException;
 
 public class ChoosePuzzle extends AppCompatActivity {
 
-    static int wallpaper;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_sebas_choose_puzzle);
-
-        wallpaper = getIntent().getIntExtra("wallpaper", 1);
-
-        ImageView imageView = findViewById(R.id.fondoPantalla);
-        //Get the resource ID
-//        imageView.setImageResource(wallpaper);
 
         AssetManager am = getAssets();
         try {
@@ -41,7 +32,6 @@ public class ChoosePuzzle extends AppCompatActivity {
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                     Intent intent = new Intent(getApplicationContext(), PuzzleActivity.class);
                     intent.putExtra("assetName", files[i % files.length]);
-                    intent.putExtra("wallpaper", wallpaper);
                     startActivity(intent);
                 }
             });
@@ -55,7 +45,6 @@ public class ChoosePuzzle extends AppCompatActivity {
         super.onBackPressed();
         Intent intent = new Intent(this, Games.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.putExtra("wallpaper", wallpaper);
         startActivity(intent);
     }
 }

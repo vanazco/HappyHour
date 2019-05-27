@@ -13,7 +13,6 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.media.ExifInterface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -21,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.example.happyhour.Games.BallonActivity;
 import com.example.happyhour.R;
 
 import java.io.IOException;
@@ -34,18 +34,10 @@ import static java.lang.Math.abs;
 public class PuzzleActivity extends AppCompatActivity {
     ArrayList<PuzzlePiece> pieces;
 
-    static int wallpaper;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_puzzle);
-
-        wallpaper = getIntent().getIntExtra("wallpaper", 1);
-
-        ImageView fondo = findViewById(R.id.fondoPantalla);
-        //Get the resource ID
-//        fondo.setImageResource(wallpaper);
 
         final RelativeLayout layout = findViewById(R.id.layout);
         final ImageView imageView = findViewById(R.id.imageView);
@@ -79,7 +71,6 @@ public class PuzzleActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(PuzzleActivity.this, ChoosePuzzle.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra("wallpaper", wallpaper);
                 startActivity(intent);
             }
         });
@@ -296,7 +287,8 @@ public class PuzzleActivity extends AppCompatActivity {
 
     public void checkGameOver() {
         if (isGameOver()) {
-            Toast.makeText(PuzzleActivity.this, "FELICIDAD", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, BallonActivity.class);
+            startActivity(intent);
         }
     }
 
@@ -308,51 +300,6 @@ public class PuzzleActivity extends AppCompatActivity {
         }
 
         return true;
-    }
-
-    private void setPicFromPath(String mCurrentPhotoPath, ImageView imageView) {
-        // Get the dimensions of the View
-        int targetW = imageView.getWidth();
-        int targetH = imageView.getHeight();
-
-        // Get the dimensions of the bitmap
-        BitmapFactory.Options bmOptions = new BitmapFactory.Options();
-        bmOptions.inJustDecodeBounds = true;
-        BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
-        int photoW = bmOptions.outWidth;
-        int photoH = bmOptions.outHeight;
-
-        // Determine how much to scale down the image
-        int scaleFactor = Math.min(photoW/targetW, photoH/targetH);
-
-        // Decode the image file into a Bitmap sized to fill the View
-        bmOptions.inJustDecodeBounds = false;
-        bmOptions.inSampleSize = scaleFactor;
-        bmOptions.inPurgeable = true;
-
-        Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
-        Bitmap rotatedBitmap = bitmap;
-
-        // rotate bitmap if needed
-        try {
-            ExifInterface ei = new ExifInterface(mCurrentPhotoPath);
-            int orientation = ei.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_UNDEFINED);
-            switch (orientation) {
-                case ExifInterface.ORIENTATION_ROTATE_90:
-                    rotatedBitmap = rotateImage(bitmap, 90);
-                    break;
-                case ExifInterface.ORIENTATION_ROTATE_180:
-                    rotatedBitmap = rotateImage(bitmap, 180);
-                    break;
-                case ExifInterface.ORIENTATION_ROTATE_270:
-                    rotatedBitmap = rotateImage(bitmap, 270);
-                    break;
-            }
-        } catch (IOException e) {
-            Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-        }
-
-        imageView.setImageBitmap(rotatedBitmap);
     }
 
     public static Bitmap rotateImage(Bitmap source, float angle) {

@@ -17,7 +17,6 @@ import com.example.happyhour.R;
 
 public class LetterGame extends AppCompatActivity {
 
-    static int wallpaper;
     Letter a,e,i,o,u,empty,empty2;
     Handler handler;
     boolean animation_started = true;
@@ -30,7 +29,6 @@ public class LetterGame extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        wallpaper = getIntent().getIntExtra("wallpaper", 1);
         //random para elegir el layout que saldrá
         random = (int) (Math.random() * 3 + 1);
         //Inicializamos algunas variables
@@ -92,7 +90,6 @@ public class LetterGame extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(LetterGame.this, Games.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra("wallpaper", wallpaper);
                 startActivity(intent);
             }
         });
@@ -317,7 +314,6 @@ public class LetterGame extends AppCompatActivity {
         super.onBackPressed();
         Intent intent = new Intent(this, Games.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.putExtra("wallpaper", wallpaper);
         startActivity(intent);
     }
 }
