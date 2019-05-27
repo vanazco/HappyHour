@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ImageView;
 
 import com.example.happyhour.HelpActivity;
 import com.example.happyhour.Information;
@@ -29,7 +28,7 @@ public class GameMode extends AppCompatActivity {
         findViewById(R.id.btn_random).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(GameMode.this, Random.class);
+                intent = new Intent(GameMode.this, RandomGame.class);
                 startActivity(intent);
             }
         });

@@ -17,7 +17,7 @@
             android:name=".HelpActivity"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".Estructura.Random"
+            android:name=".Estructura.RandomGame"
             android:screenOrientation="landscape" />
         <activity
             android:name=".Games.Victor.CardGame2"

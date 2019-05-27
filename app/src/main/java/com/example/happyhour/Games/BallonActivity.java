@@ -16,7 +16,7 @@ import android.widget.ImageView;
 import com.example.happyhour.Balloons.Balloon;
 import com.example.happyhour.Balloons.utils.SoundHelper;
 import com.example.happyhour.Estructura.Games;
-import com.example.happyhour.Estructura.Juego;
+import com.example.happyhour.Estructura.RandomGame;
 import com.example.happyhour.R;
 
 import java.util.ArrayList;
@@ -117,7 +117,7 @@ public class BallonActivity extends AppCompatActivity implements Balloon.Balloon
         seguir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(BallonActivity.this, Juego.class);
+                Intent intent = new Intent(BallonActivity.this, RandomGame.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
