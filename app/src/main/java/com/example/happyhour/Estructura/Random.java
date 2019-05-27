@@ -15,7 +15,7 @@ import com.example.happyhour.Games.Victor.CardGame2;
 import com.example.happyhour.Games.Victor.LetterGame;
 import com.example.happyhour.R;
 
-public class Juego extends AppCompatActivity {
+public class Random extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,44 +31,44 @@ public class Juego extends AppCompatActivity {
 
         if(random == 1){
             if(level == 1){
-                intent = new Intent(Juego.this, Game1_1.class);
+                intent = new Intent(Random.this, Game1_1.class);
                 intent.putExtra("wallpaper", wallpaper);
                 startActivity(intent);
             }else{
-                intent = new Intent(Juego.this, Game1_2.class);
+                intent = new Intent(Random.this, Game1_2.class);
                 intent.putExtra("wallpaper", wallpaper);
                 startActivity(intent);
             }
         }else if(random == 2){
             if(level == 1){
-                intent = new Intent(Juego.this, Game2_1.class);
+                intent = new Intent(Random.this, Game2_1.class);
                 intent.putExtra("wallpaper", wallpaper);
                 startActivity(intent);
             }else{
-                intent = new Intent(Juego.this, Game2_2.class);
+                intent = new Intent(Random.this, Game2_2.class);
                 intent.putExtra("wallpaper", wallpaper);
                 startActivity(intent);
             }
         }else if(random == 3){
-                intent = new Intent(Juego.this, LetterGame.class);
+                intent = new Intent(Random.this, LetterGame.class);
                 intent.putExtra("wallpaper", wallpaper);
                 startActivity(intent);
         }else if(random == 4){
             if(level == 1){
-                intent = new Intent(Juego.this, CardGame1.class);
+                intent = new Intent(Random.this, CardGame1.class);
                 intent.putExtra("wallpaper", wallpaper);
                 startActivity(intent);
             }else{
-                intent = new Intent(Juego.this, CardGame2.class);
+                intent = new Intent(Random.this, CardGame2.class);
                 intent.putExtra("wallpaper", wallpaper);
                 startActivity(intent);
             }
         }else if(random == 5){
-            intent = new Intent(Juego.this, ChoosePuzzle.class);
+            intent = new Intent(Random.this, ChoosePuzzle.class);
             intent.putExtra("wallpaper", wallpaper);
             startActivity(intent);
         }else if(random == 6){
-            intent = new Intent(Juego.this, Pintar.class);
+            intent = new Intent(Random.this, Pintar.class);
             intent.putExtra("wallpaper", wallpaper);
             startActivity(intent);
         }

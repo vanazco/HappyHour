@@ -10,6 +10,7 @@ import com.example.happyhour.R;
 public class Game1_1 extends AppCompatActivity {
 
     static int wallpaper;
+    public int id_game = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

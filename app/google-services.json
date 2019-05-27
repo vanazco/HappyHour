@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "832669767652",
+    "firebase_url": "https://happyhour-f58bd.firebaseio.com",
+    "project_id": "happyhour-f58bd",
+    "storage_bucket": "happyhour-f58bd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:832669767652:android:34378579a241f786",
+        "android_client_info": {
+          "package_name": "com.example.happyhour"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "832669767652-ej24iksic5fsv0g509482vg5jgrfriv5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.happyhour",
+            "certificate_hash": "33d4607f946fc51bde73a34898b1e3eda6f827c0"
+          }
+        },
+        {
+          "client_id": "832669767652-veiigkd3dq2ha1m9k4trn3rdujbrulp5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEdeqsbZFwkDYuLP__51-1_ZDcqEoOvgA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "832669767652-veiigkd3dq2ha1m9k4trn3rdujbrulp5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -16,6 +16,8 @@ import java.io.IOException;
 
 public class ChoosePuzzle extends AppCompatActivity {
 
+    public int id_game = 4;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
