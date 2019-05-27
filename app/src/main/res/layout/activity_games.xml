@@ -8,11 +8,22 @@
 
     <include layout="@layout/fondo_pantalla" />
 
+    <android.support.v7.widget.AppCompatImageButton
+        android:id="@+id/goBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/goback"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageButton
         android:id="@+id/game1"
-        android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:layout_marginStart="64dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
         android:layout_marginTop="32dp"
         android:background="#00FFFFFF"
         android:src="@drawable/number_game"
@@ -68,7 +79,7 @@
         android:id="@+id/game6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
+        android:layout_marginStart="100dp"
         android:layout_marginTop="32dp"
         android:background="#00FFFFFF"
         android:src="@drawable/colour_game"

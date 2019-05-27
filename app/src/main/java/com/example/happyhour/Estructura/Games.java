@@ -110,6 +110,15 @@ public class Games extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        findViewById(R.id.goBack).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Games.this, GameMode.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
