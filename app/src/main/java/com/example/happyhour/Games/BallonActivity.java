@@ -25,11 +25,11 @@ import java.util.Random;
 
 public class BallonActivity extends AppCompatActivity implements Balloon.BalloonListener {
 
-    private static final int MIN_ANIMATION_DELAY = 500;
-    private static final int MAX_ANIMATION_DELAY = 1500;
+    private static final int MIN_ANIMATION_DELAY = 100;
+    private static final int MAX_ANIMATION_DELAY = 500;
     private static final int MIN_ANIMATION_DURATION = 1000;
-    private static final int MAX_ANIMATION_DURATION = 8000;
-    private static final int BALLOONS = 10;
+    private static final int MAX_ANIMATION_DURATION = 3000;
+    private static final int BALLOONS = 30;
 
     private ViewGroup mContentView;
     private int[] mBalloonColors = new int[3];
@@ -54,7 +54,7 @@ public class BallonActivity extends AppCompatActivity implements Balloon.Balloon
         mBalloonColors[1] = Color.argb(255, 0, 255, 0);
         mBalloonColors[2] = Color.argb(255, 0, 0, 255);
 
-        mContentView = (ViewGroup) findViewById(R.id.balloon_activity);
+        mContentView = findViewById(R.id.balloon_activity);
 
         finalizado = findViewById(R.id.finished);
         seguir = findViewById(R.id.seguirJugando);

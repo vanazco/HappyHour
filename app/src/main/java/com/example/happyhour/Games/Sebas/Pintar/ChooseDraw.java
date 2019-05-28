@@ -1,38 +1,38 @@
-package com.example.happyhour.Games.Sebas.Puzzle;
+package com.example.happyhour.Games.Sebas.Pintar;
 
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
 import com.example.happyhour.Estructura.Games;
+import com.example.happyhour.Games.Sebas.Puzzle.ImageAdapter;
 import com.example.happyhour.R;
 
 import java.io.IOException;
 
-public class ChoosePuzzle extends AppCompatActivity {
-
-    public int id_game = 4;
+public class ChooseDraw extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game_sebas_choose_puzzle);
+        setContentView(R.layout.activity_choose_draw);
 
         AssetManager am = getAssets();
         try {
-            final String[] files  = am.list("puzzle");
+            final String[] files  = am.list("dibujo");
 
             GridView grid = findViewById(R.id.grid);
-            grid.setAdapter(new ImageAdapter(this, "puzzle"));
+            grid.setAdapter(new ImageAdapter(this, "dibujo"));
             grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    Intent intent = new Intent(getApplicationContext(), PuzzleActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), Pintar.class);
                     intent.putExtra("assetName", files[i % files.length]);
                     startActivity(intent);
                 }
@@ -44,12 +44,11 @@ public class ChoosePuzzle extends AppCompatActivity {
         findViewById(R.id.goBack).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ChoosePuzzle.this, Games.class);
+                Intent intent = new Intent(ChooseDraw.this, Games.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
         });
-
     }
 
     @Override

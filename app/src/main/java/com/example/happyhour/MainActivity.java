@@ -25,11 +25,12 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_start).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                signIn();
-
+                //signIn();
+                Intent intent = new Intent(MainActivity.this, GameMode.class);
+                startActivity(intent);
             }
         });
-        comeIn();
+        //comeIn();
     }
 
     void signIn(){

@@ -21,12 +21,14 @@ public class ImageAdapter extends BaseAdapter {
     private Context mContext;
     private AssetManager am;
     private String[] files;
+    private String pathFile;
 
-    public ImageAdapter(Context c) {
+    public ImageAdapter(Context c, String path) {
         mContext = c;
         am = mContext.getAssets();
+        pathFile = path;
         try {
-            files  = am.list("img");
+            files  = am.list(pathFile);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -88,7 +90,7 @@ public class ImageAdapter extends BaseAdapter {
         }
 
         try {
-            InputStream is = am.open("img/" + assetName);
+            InputStream is = am.open(pathFile + "/" + assetName);
             // Get the dimensions of the bitmap
             BitmapFactory.Options bmOptions = new BitmapFactory.Options();
             bmOptions.inJustDecodeBounds = true;

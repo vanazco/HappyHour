@@ -10,6 +10,7 @@ import com.example.happyhour.Games.Adri.Game1_1;
 import com.example.happyhour.Games.Adri.Game1_2;
 import com.example.happyhour.Games.Adri.Game2_1;
 import com.example.happyhour.Games.Adri.Game2_2;
+import com.example.happyhour.Games.Sebas.Pintar.ChooseDraw;
 import com.example.happyhour.Games.Sebas.Pintar.Pintar;
 import com.example.happyhour.Games.Sebas.Puzzle.ChoosePuzzle;
 import com.example.happyhour.Games.Victor.CardGame1;
@@ -21,20 +22,13 @@ public class Games extends AppCompatActivity {
 
     ImageButton btn1,btn2,btn3,btn4,btn5,btn6;
     private Intent intent;
-    private static int wallpaper;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_games);
 
-        wallpaper = getIntent().getIntExtra("wallpaper", 1);
-
-
         final int level = (int )(Math.random() * 2 + 1);
-
-
 
         btn1 = findViewById(R.id.game1);
         btn2 = findViewById(R.id.game2);
@@ -48,11 +42,9 @@ public class Games extends AppCompatActivity {
             public void onClick(View v) {
                 if(level == 1){
                     intent = new Intent(Games.this, Game1_1.class);
-                    intent.putExtra("wallpaper", wallpaper);
                     startActivity(intent);
                 }else{
                     intent = new Intent(Games.this, Game1_2.class);
-                    intent.putExtra("wallpaper", wallpaper);
                     startActivity(intent);
                 }
             }
@@ -62,11 +54,9 @@ public class Games extends AppCompatActivity {
             public void onClick(View v) {
                 if(level == 1){
                     intent = new Intent(Games.this, Game2_1.class);
-                    intent.putExtra("wallpaper", wallpaper);
                     startActivity(intent);
                 }else{
                     intent = new Intent(Games.this, Game2_2.class);
-                    intent.putExtra("wallpaper", wallpaper);
                     startActivity(intent);
                 }
             }
@@ -75,7 +65,6 @@ public class Games extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                     intent = new Intent(Games.this, LetterGame.class);
-                    intent.putExtra("wallpaper", wallpaper);
                     startActivity(intent);
             }
         });
@@ -84,11 +73,9 @@ public class Games extends AppCompatActivity {
             public void onClick(View v) {
                 if(level == 1){
                     intent = new Intent(Games.this, CardGame1.class);
-                    intent.putExtra("wallpaper", wallpaper);
                     startActivity(intent);
                 }else{
                     intent = new Intent(Games.this, CardGame2.class);
-                    intent.putExtra("wallpaper", wallpaper);
                     startActivity(intent);
                 }
             }
@@ -97,15 +84,13 @@ public class Games extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 intent = new Intent(Games.this, ChoosePuzzle.class);
-                intent.putExtra("wallpaper", wallpaper);
                 startActivity(intent);
             }
         });
         btn6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(Games.this, Pintar.class);
-                intent.putExtra("wallpaper", wallpaper);
+                intent = new Intent(Games.this, ChooseDraw.class);
                 startActivity(intent);
             }
         });
@@ -125,7 +110,6 @@ public class Games extends AppCompatActivity {
         super.onBackPressed();
         Intent intent = new Intent(this, GameMode.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.putExtra("wallpaper", wallpaper);
         startActivity(intent);
     }
 }
