@@ -6,12 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.example.happyhour.Games.Adri.Game1_1;
-import com.example.happyhour.Games.Adri.Game1_2;
+import com.example.happyhour.Games.Adri.NumGame;
 import com.example.happyhour.Games.Adri.Game2_1;
 import com.example.happyhour.Games.Adri.Game2_2;
 import com.example.happyhour.Games.Sebas.Pintar.ChooseDraw;
-import com.example.happyhour.Games.Sebas.Pintar.Pintar;
 import com.example.happyhour.Games.Sebas.Puzzle.ChoosePuzzle;
 import com.example.happyhour.Games.Victor.CardGame1;
 import com.example.happyhour.Games.Victor.CardGame2;
@@ -40,13 +38,9 @@ public class Games extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(level == 1){
-                    intent = new Intent(Games.this, Game1_1.class);
+                    intent = new Intent(Games.this, NumGame.class);
                     startActivity(intent);
-                }else{
-                    intent = new Intent(Games.this, Game1_2.class);
-                    startActivity(intent);
-                }
+
             }
         });
         btn2.setOnClickListener(new View.OnClickListener() {
@@ -91,6 +85,15 @@ public class Games extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 intent = new Intent(Games.this, ChooseDraw.class);
+                startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.goBack).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Games.this, GameMode.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
         });

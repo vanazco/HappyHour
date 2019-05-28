@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Games.Adri.Game1_1">
+    tools:context=".Games.Adri.NumGame">
 
 </android.support.constraint.ConstraintLayout>

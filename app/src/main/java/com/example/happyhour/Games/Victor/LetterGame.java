@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+
 import com.example.happyhour.Estructura.Game;
 import com.example.happyhour.Estructura.Games;
 import com.example.happyhour.R;
@@ -36,6 +37,7 @@ public class LetterGame extends AppCompatActivity {
     public Game game;
     private DatabaseReference mRef;
     public int id_game = 6;
+    private int numLetras, letrasCorrectas;
     String uid;
 
     @Override
@@ -66,13 +68,16 @@ public class LetterGame extends AppCompatActivity {
         if(random == 1){
             setContentView(R.layout.letter_game1);
             empty.img = findViewById(R.id.emptyLetter2);
+            numLetras = 1;
         }else if( random == 2){
             setContentView(R.layout.letter_game2);
             empty.img = findViewById(R.id.emptyLetter);
+            numLetras = 1;
         }else{
             setContentView(R.layout.letter_game3);
             empty.img = findViewById(R.id.emptyLetter2);
             empty2.img = findViewById(R.id.emptyLetter3);
+            numLetras = 2;
         }
 
         //Asignamos las vocales
@@ -83,7 +88,6 @@ public class LetterGame extends AppCompatActivity {
         u.img = findViewById(R.id.letterU);
         image = findViewById(R.id.imageView);
         fondo = findViewById(R.id.fondoPantalla);
-
 
         image.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,6 +114,8 @@ public class LetterGame extends AppCompatActivity {
                 mRef.child("Games").child(uid).setValue(game);
                 Intent intent = new Intent(LetterGame.this, Games.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                game = new Game(id,inicio,Calendar.getInstance().getTime(),id_game);
+                mRef.child("Games").child(id).setValue(game);
                 startActivity(intent);
             }
         });
@@ -118,6 +124,7 @@ public class LetterGame extends AppCompatActivity {
         a.img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 //Asignamos el valor de X y Y de las vocales ocultas
                 empty.x = empty.img.getLeft();
                 empty.y = empty.img.getTop();
@@ -145,9 +152,10 @@ public class LetterGame extends AppCompatActivity {
                     public void run() {
                         if(firstLetter){
                             mp[2].start();
+                            letrasCorrectas++;
                         }
                         if(!a.correct && !firstLetter)
-                            restorePosition(a,a.x,a.y);
+                            restorePosition(a, a.x, a.y);
                     }
                 },1500);
             }
@@ -294,11 +302,19 @@ public class LetterGame extends AppCompatActivity {
                     letter.correct = true;
                     firstLetter = true;
                     mp[2].start();
+                    letrasCorrectas++;
                 }else if(letter.img.getBackground().getConstantState() == empty.img.getBackground().getConstantState() && random > 2){
                     letter.correct = true;
                     firstLetter = true;
+                    letrasCorrectas++;
                 }else{
                     letter.correct = false;
+                }
+
+                System.out.println("ABCD -> letrasCorr -> " + letrasCorrectas);
+
+                if (letrasCorrectas == numLetras) {
+                    GameOver();
                 }
             }
         });
@@ -328,6 +344,12 @@ public class LetterGame extends AppCompatActivity {
         as.start();
     }
 
+
+    public void GameOver() {
+        Intent intent = new Intent(this, BallonActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -335,6 +357,8 @@ public class LetterGame extends AppCompatActivity {
         mRef.child("Games").child(uid).setValue(game);
         Intent intent = new Intent(this, Games.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        game = new Game(id,inicio,Calendar.getInstance().getTime(),id_game);
+        mRef.child("Games").child(id).setValue(game);
         startActivity(intent);
     }
 }
