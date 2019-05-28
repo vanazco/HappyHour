@@ -9,12 +9,13 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-
 import com.example.happyhour.Estructura.Game;
 import com.example.happyhour.Estructura.Games;
 import com.example.happyhour.R;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -33,8 +34,9 @@ public class LetterGame extends AppCompatActivity {
     int random;
     private Date inicio;
     public Game game;
-    public DatabaseReference mRef;
+    private DatabaseReference mRef;
     public int id_game = 6;
+    String uid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,7 @@ public class LetterGame extends AppCompatActivity {
 
         inicio = Calendar.getInstance().getTime();
         mRef = FirebaseDatabase.getInstance().getReference();
+        uid = FirebaseAuth.getInstance().getUid();
 
         //random para elegir el layout que saldrá
         random = (int) (Math.random() * 3 + 1);
@@ -81,6 +84,7 @@ public class LetterGame extends AppCompatActivity {
         image = findViewById(R.id.imageView);
         fondo = findViewById(R.id.fondoPantalla);
 
+
         image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,11 +104,12 @@ public class LetterGame extends AppCompatActivity {
         findViewById(R.id.goBack).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String id = UUID.randomUUID().toString();
+
+                game = new Game(inicio,Calendar.getInstance().getTime(),id_game);
+                Log.e("abc", ""+game.id_game);
+                mRef.child("Games").child(uid).setValue(game);
                 Intent intent = new Intent(LetterGame.this, Games.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                game = new Game(id,inicio,Calendar.getInstance().getTime(),id_game);
-                mRef.child("Games").child(id).setValue(game);
                 startActivity(intent);
             }
         });
@@ -113,7 +118,6 @@ public class LetterGame extends AppCompatActivity {
         a.img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 //Asignamos el valor de X y Y de las vocales ocultas
                 empty.x = empty.img.getLeft();
                 empty.y = empty.img.getTop();
@@ -327,11 +331,10 @@ public class LetterGame extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        String id = UUID.randomUUID().toString();
+        game = new Game(inicio,Calendar.getInstance().getTime(),id_game);
+        mRef.child("Games").child(uid).setValue(game);
         Intent intent = new Intent(this, Games.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        game = new Game(id,inicio,Calendar.getInstance().getTime(),id_game);
-        mRef.child("Games").child(id).setValue(game);
         startActivity(intent);
     }
 }
