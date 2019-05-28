@@ -27,10 +27,6 @@ public class CardGame1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.card_game);
 
-        ImageView imageView = findViewById(R.id.fondoPantalla);
-        //Get the resource ID
-//        imageView.setImageResource(wallpaper);
-
         findViewById(R.id.goBack).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,7 +55,6 @@ public class CardGame1 extends AppCompatActivity {
         bewear2.btn = findViewById(R.id.bewear_2);
         panda1.btn = findViewById(R.id.panda_1);
         panda2.btn = findViewById(R.id.panda_2);
-
 
         new CountDownTimer(3000,1000){
             @Override
