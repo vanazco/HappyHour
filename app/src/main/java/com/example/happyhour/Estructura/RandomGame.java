@@ -41,7 +41,6 @@ public class RandomGame extends AppCompatActivity {
                 startActivity(intent);
             }else{
                 intent = new Intent(RandomGame.this, Game2_2.class);
-                
                 startActivity(intent);
             }
         }else if(random == 3){

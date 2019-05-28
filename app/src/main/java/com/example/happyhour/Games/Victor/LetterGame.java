@@ -14,6 +14,7 @@ import android.widget.ImageView;
 
 import com.example.happyhour.Estructura.Game;
 import com.example.happyhour.Estructura.Games;
+import com.example.happyhour.Games.BallonActivity;
 import com.example.happyhour.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -35,6 +36,7 @@ public class LetterGame extends AppCompatActivity {
     public Game game;
     public DatabaseReference mRef;
     public int id_game = 6;
+    private int numLetras, letrasCorrectas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,13 +65,16 @@ public class LetterGame extends AppCompatActivity {
         if(random == 1){
             setContentView(R.layout.letter_game1);
             empty.img = findViewById(R.id.emptyLetter2);
+            numLetras = 1;
         }else if( random == 2){
             setContentView(R.layout.letter_game2);
             empty.img = findViewById(R.id.emptyLetter);
+            numLetras = 1;
         }else{
             setContentView(R.layout.letter_game3);
             empty.img = findViewById(R.id.emptyLetter2);
             empty2.img = findViewById(R.id.emptyLetter3);
+            numLetras = 2;
         }
 
         //Asignamos las vocales
@@ -141,9 +146,10 @@ public class LetterGame extends AppCompatActivity {
                     public void run() {
                         if(firstLetter){
                             mp[2].start();
+                            letrasCorrectas++;
                         }
                         if(!a.correct && !firstLetter)
-                            restorePosition(a,a.x,a.y);
+                            restorePosition(a, a.x, a.y);
                     }
                 },1500);
             }
@@ -290,11 +296,19 @@ public class LetterGame extends AppCompatActivity {
                     letter.correct = true;
                     firstLetter = true;
                     mp[2].start();
+                    letrasCorrectas++;
                 }else if(letter.img.getBackground().getConstantState() == empty.img.getBackground().getConstantState() && random > 2){
                     letter.correct = true;
                     firstLetter = true;
+                    letrasCorrectas++;
                 }else{
                     letter.correct = false;
+                }
+
+                System.out.println("ABCD -> letrasCorr -> " + letrasCorrectas);
+
+                if (letrasCorrectas == numLetras) {
+                    GameOver();
                 }
             }
         });
@@ -322,6 +336,12 @@ public class LetterGame extends AppCompatActivity {
             }
         });
         as.start();
+    }
+
+
+    public void GameOver() {
+        Intent intent = new Intent(this, BallonActivity.class);
+        startActivity(intent);
     }
 
     @Override
