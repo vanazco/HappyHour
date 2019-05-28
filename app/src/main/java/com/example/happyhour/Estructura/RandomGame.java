@@ -22,8 +22,6 @@ public class RandomGame extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego);
 
-        final int wallpaper = getIntent().getIntExtra("wallpaper", 1);
-
         int level = (int )(Math.random() * 2 + 1);
         int random = (int )(Math.random() * 6 + 1);
 
@@ -32,44 +30,36 @@ public class RandomGame extends AppCompatActivity {
         if(random == 1){
             if(level == 1){
                 intent = new Intent(RandomGame.this, Game1_1.class);
-                intent.putExtra("wallpaper", wallpaper);
                 startActivity(intent);
             }else{
                 intent = new Intent(RandomGame.this, Game1_2.class);
-                intent.putExtra("wallpaper", wallpaper);
                 startActivity(intent);
             }
         }else if(random == 2){
             if(level == 1){
                 intent = new Intent(RandomGame.this, Game2_1.class);
-                intent.putExtra("wallpaper", wallpaper);
                 startActivity(intent);
             }else{
                 intent = new Intent(RandomGame.this, Game2_2.class);
-                intent.putExtra("wallpaper", wallpaper);
+                
                 startActivity(intent);
             }
         }else if(random == 3){
                 intent = new Intent(RandomGame.this, LetterGame.class);
-                intent.putExtra("wallpaper", wallpaper);
                 startActivity(intent);
         }else if(random == 4){
             if(level == 1){
                 intent = new Intent(RandomGame.this, CardGame1.class);
-                intent.putExtra("wallpaper", wallpaper);
                 startActivity(intent);
             }else{
                 intent = new Intent(RandomGame.this, CardGame2.class);
-                intent.putExtra("wallpaper", wallpaper);
                 startActivity(intent);
             }
         }else if(random == 5){
             intent = new Intent(RandomGame.this, ChoosePuzzle.class);
-            intent.putExtra("wallpaper", wallpaper);
             startActivity(intent);
         }else if(random == 6){
             intent = new Intent(RandomGame.this, Pintar.class);
-            intent.putExtra("wallpaper", wallpaper);
             startActivity(intent);
         }
     }
