@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.example.happyhour"
-        minSdkVersion 19
+        minSdkVersion 26
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -33,6 +33,10 @@ dependencies {
 
     implementation 'com.firebaseui:firebase-ui-database:4.3.1'
     implementation 'com.firebaseui:firebase-ui-auth:4.3.1'
+
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+
+
 }
 
 apply plugin: 'com.google.gms.google-services'

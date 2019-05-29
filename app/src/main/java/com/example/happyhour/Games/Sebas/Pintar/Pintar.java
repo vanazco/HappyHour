@@ -17,10 +17,16 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
+import com.example.happyhour.Estructura.Game;
 import com.example.happyhour.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.time.LocalDateTime;
+import java.util.UUID;
 
 public class Pintar extends AppCompatActivity implements View.OnClickListener {
 
@@ -29,12 +35,23 @@ public class Pintar extends AppCompatActivity implements View.OnClickListener {
     private float smallBrush, mediumBrush, largeBrush;
     private FrameLayout pnlFlash;
     private Drawable drawable;
+    public int id_game = 3;
+    private LocalDateTime inicio,fi;
+    public Game game;
+    private DatabaseReference mRef;
+    String uid,s_inicio,s_fi;
 
     @SuppressLint("NewApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.flash);
+
+        inicio = LocalDateTime.now();
+        s_inicio = inicio.getDayOfMonth()+ " " + inicio.getHour() +":"+ inicio.getMinute();
+
+        mRef = FirebaseDatabase.getInstance().getReference();
+        uid = FirebaseAuth.getInstance().getUid();
 
         Intent intent = getIntent();
         final String assetName = intent.getStringExtra("assetName");
@@ -101,6 +118,11 @@ public class Pintar extends AppCompatActivity implements View.OnClickListener {
         findViewById(R.id.pintarGoBack).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String id = UUID.randomUUID().toString();
+                fi = LocalDateTime.now();
+                s_fi = fi.getDayOfMonth()+ "  " +fi.getHour()+ ":" + fi.getMinute();
+                game = new Game(id,s_inicio,s_fi,id_game);
+                mRef.child("Games").child(uid).child(id).setValue(game);
                 Intent intent = new Intent(Pintar.this, ChooseDraw.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
@@ -222,6 +244,11 @@ public class Pintar extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        String id = UUID.randomUUID().toString();
+        fi = LocalDateTime.now();
+        s_fi = fi.getDayOfMonth()+ "  " +fi.getHour()+ ":" + fi.getMinute();
+        game = new Game(id,s_inicio,s_fi,id_game);
+        mRef.child("Games").child(uid).child(id).setValue(game);
         Intent intent = new Intent(this, ChooseDraw.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);

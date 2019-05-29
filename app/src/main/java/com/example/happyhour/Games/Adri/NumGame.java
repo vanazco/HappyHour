@@ -42,7 +42,7 @@ public class NumGame extends AppCompatActivity {
 
         final int random = (int) (Math.random() * 6 + 1);
 
-        inicio = Calendar.getInstance().getTime();
+       // inicio = Calendar.getInstance().getTime();
         mRef = FirebaseDatabase.getInstance().getReference();
 
         empty = new Num();
@@ -88,8 +88,8 @@ public class NumGame extends AppCompatActivity {
                 String id = UUID.randomUUID().toString();
                 Intent intent = new Intent(NumGame.this, Games.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                game = new Game(id,inicio, Calendar.getInstance().getTime(),id_game);
-                mRef.child("Games").child(id).setValue(game);
+              //  game = new Game(id,inicio, Calendar.getInstance().getTime(),id_game);
+               // mRef.child("Games").child(id).setValue(game);
                 startActivity(intent);
             }
         });

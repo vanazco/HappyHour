@@ -8,8 +8,15 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.example.happyhour.Estructura.Game;
 import com.example.happyhour.Estructura.Games;
 import com.example.happyhour.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.time.LocalDateTime;
+import java.util.UUID;
 
 public class CardGame2 extends AppCompatActivity {
 
@@ -19,16 +26,31 @@ public class CardGame2 extends AppCompatActivity {
     Handler handler;
     MediaPlayer mp;
     public int id_game = 5;
+    private LocalDateTime inicio,fi;
+    public Game game;
+    private DatabaseReference mRef;
+    String uid,s_inicio,s_fi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.card_game2);
 
+        inicio = LocalDateTime.now();
+        s_inicio = inicio.getDayOfMonth()+ " " + inicio.getHour() +":"+ inicio.getMinute();
+
+        mRef = FirebaseDatabase.getInstance().getReference();
+        uid = FirebaseAuth.getInstance().getUid();
+
 
         findViewById(R.id.goBack).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String id = UUID.randomUUID().toString();
+                fi = LocalDateTime.now();
+                s_fi = fi.getDayOfMonth()+ "  " +fi.getHour()+ ":" + fi.getMinute();
+                game = new Game(id,s_inicio,s_fi,id_game);
+                mRef.child("Games").child(uid).child(id).setValue(game);
                 Intent intent = new Intent(CardGame2.this, Games.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
@@ -307,6 +329,11 @@ public class CardGame2 extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        String id = UUID.randomUUID().toString();
+        fi = LocalDateTime.now();
+        s_fi = fi.getDayOfMonth()+ "  " +fi.getHour()+ ":" + fi.getMinute();
+        game = new Game(id,s_inicio,s_fi,id_game);
+        mRef.child("Games").child(uid).child(id).setValue(game);
         Intent intent = new Intent(this, Games.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
