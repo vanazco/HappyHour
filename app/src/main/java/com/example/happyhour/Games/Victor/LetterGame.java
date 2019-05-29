@@ -39,6 +39,7 @@ public class LetterGame extends AppCompatActivity {
     public int id_game = 6;
     private int numLetras, letrasCorrectas;
     String uid;
+    private boolean segundaLetra = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +70,7 @@ public class LetterGame extends AppCompatActivity {
             setContentView(R.layout.letter_game1);
             empty.img = findViewById(R.id.emptyLetter2);
             numLetras = 1;
-        }else if( random == 2){
+        }else if(random == 2){
             setContentView(R.layout.letter_game2);
             empty.img = findViewById(R.id.emptyLetter);
             numLetras = 1;
@@ -152,10 +153,12 @@ public class LetterGame extends AppCompatActivity {
                     public void run() {
                         if(firstLetter){
                             mp[2].start();
-                            letrasCorrectas++;
+                            segundaLetra = true;
                         }
                         if(!a.correct && !firstLetter)
                             restorePosition(a, a.x, a.y);
+                        else
+                            letrasCorrectas++;
                     }
                 },1500);
             }
@@ -302,16 +305,20 @@ public class LetterGame extends AppCompatActivity {
                     letter.correct = true;
                     firstLetter = true;
                     mp[2].start();
-                    letrasCorrectas++;
                 }else if(letter.img.getBackground().getConstantState() == empty.img.getBackground().getConstantState() && random > 2){
                     letter.correct = true;
                     firstLetter = true;
-                    letrasCorrectas++;
                 }else{
                     letter.correct = false;
                 }
 
-                System.out.println("ABCD -> letrasCorr -> " + letrasCorrectas);
+                if (letter.correct) {
+                    letrasCorrectas++;
+                }
+
+                if (random == 3 && segundaLetra) {
+                    letrasCorrectas++;
+                }
 
                 if (letrasCorrectas == numLetras) {
                     GameOver();

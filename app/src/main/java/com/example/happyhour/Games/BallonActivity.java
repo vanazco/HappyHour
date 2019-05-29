@@ -29,7 +29,7 @@ public class BallonActivity extends AppCompatActivity implements Balloon.Balloon
     private static final int MAX_ANIMATION_DELAY = 500;
     private static final int MIN_ANIMATION_DURATION = 1000;
     private static final int MAX_ANIMATION_DURATION = 3000;
-    private static final int BALLOONS = 30;
+    private static final int BALLOONS = 20;
 
     private ViewGroup mContentView;
     private int[] mBalloonColors = new int[3];
