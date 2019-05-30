@@ -48,7 +48,7 @@
             android:noHistory="true"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".Games.Adri.Game2_1"
+            android:name=".Games.Adri.ShapeGame"
             android:noHistory="true"
             android:screenOrientation="landscape" />
         <activity
