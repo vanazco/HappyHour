@@ -4,8 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.example.happyhour.Games.Adri.Game2_1;
-import com.example.happyhour.Games.Adri.Game2_2;
+import com.example.happyhour.Games.Adri.ShapeGame;
 import com.example.happyhour.Games.Adri.NumGame;
 import com.example.happyhour.Games.Sebas.Pintar.Pintar;
 import com.example.happyhour.Games.Sebas.Puzzle.ChoosePuzzle;
@@ -30,13 +29,8 @@ public class RandomGame extends AppCompatActivity {
             intent = new Intent(RandomGame.this, NumGame.class);
             startActivity(intent);
         }else if(random == 2){
-            if(level == 1){
-                intent = new Intent(RandomGame.this, Game2_1.class);
+                intent = new Intent(RandomGame.this, ShapeGame.class);
                 startActivity(intent);
-            }else{
-                intent = new Intent(RandomGame.this, Game2_2.class);
-                startActivity(intent);
-            }
         }else if(random == 3){
                 intent = new Intent(RandomGame.this, LetterGame.class);
                 startActivity(intent);
