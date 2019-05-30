@@ -15,9 +15,11 @@ import com.example.happyhour.Estructura.Game;
 import com.example.happyhour.Estructura.Games;
 import com.example.happyhour.Games.BallonActivity;
 import com.example.happyhour.R;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.UUID;
@@ -29,12 +31,15 @@ public class NumGame extends AppCompatActivity {
     boolean animation_started = true;
     boolean firstNum = false;
     MediaPlayer[] mp;
-    public Game game;
-    private Date inicio;
-    public DatabaseReference mRef;
     static int wallpaper;
     public int id_game = 1;
     boolean win;
+    private LocalDateTime inicio,fi;
+    public Game game;
+    public DatabaseReference mRef;
+    String uid,s_inicio,s_fi;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +47,11 @@ public class NumGame extends AppCompatActivity {
 
         final int random = (int) (Math.random() * 6 + 1);
 
-       // inicio = Calendar.getInstance().getTime();
+        inicio = LocalDateTime.now();
+        s_inicio = inicio.getDayOfMonth()+ " " + inicio.getHour() +":"+ inicio.getMinute();
+
         mRef = FirebaseDatabase.getInstance().getReference();
+        uid = FirebaseAuth.getInstance().getUid();
 
         empty = new Num();
         handler = new Handler();
@@ -86,10 +94,12 @@ public class NumGame extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String id = UUID.randomUUID().toString();
+                fi = LocalDateTime.now();
+                s_fi = fi.getDayOfMonth()+ "  " +fi.getHour()+ ":" + fi.getMinute();
+                game = new Game(id,s_inicio,s_fi,id_game);
+                mRef.child("Games").child(uid).child(id).setValue(game);
                 Intent intent = new Intent(NumGame.this, Games.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-              //  game = new Game(id,inicio, Calendar.getInstance().getTime(),id_game);
-               // mRef.child("Games").child(id).setValue(game);
                 startActivity(intent);
             }
         });
@@ -317,6 +327,11 @@ public class NumGame extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        String id = UUID.randomUUID().toString();
+        fi = LocalDateTime.now();
+        s_fi = fi.getDayOfMonth()+ "  " +fi.getHour()+ ":" + fi.getMinute();
+        game = new Game(id,s_inicio,s_fi,id_game);
+        mRef.child("Games").child(uid).child(id).setValue(game);
         Intent intent = new Intent(this, Games.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.putExtra("wallpaper", wallpaper);
