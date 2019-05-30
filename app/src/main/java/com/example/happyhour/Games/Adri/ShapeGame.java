@@ -4,13 +4,24 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
-import com.example.happyhour.Estructura.Games;
+import com.example.happyhour.Estructura.Game;
+import com.example.happyhour.Estructura.GameMode;
+import com.example.happyhour.Games.Sebas.Pintar.ChooseDraw;
 import com.example.happyhour.R;
+import com.google.firebase.database.DatabaseReference;
+
+import java.time.LocalDateTime;
+import java.util.UUID;
 
 public class ShapeGame extends AppCompatActivity {
 
     public int id_game = 2;
+    private LocalDateTime inicio,fi;
+    public Game game;
+    private DatabaseReference mRef;
+    String uid,s_inicio,s_fi;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -46,6 +57,20 @@ public class ShapeGame extends AppCompatActivity {
             findViewById(R.id.rectangulo).setOnDragListener(new MyDragListener(this,"rectangulo"));
         }
 
+        findViewById(R.id.goBack).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String id = UUID.randomUUID().toString();
+                fi = LocalDateTime.now();
+                s_fi = fi.getDayOfMonth()+ "  " +fi.getHour()+ ":" + fi.getMinute();
+                game = new Game(id,s_inicio,s_fi,id_game);
+                mRef.child("Games").child(uid).child(id).setValue(game);
+                Intent intent = new Intent(ShapeGame.this, GameMode.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            }
+        });
+
 
     }
 
@@ -53,7 +78,12 @@ public class ShapeGame extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(this, Games.class);
+        String id = UUID.randomUUID().toString();
+        fi = LocalDateTime.now();
+        s_fi = fi.getDayOfMonth()+ "  " +fi.getHour()+ ":" + fi.getMinute();
+        game = new Game(id,s_inicio,s_fi,id_game);
+        mRef.child("Games").child(uid).child(id).setValue(game);
+        Intent intent = new Intent(this, ChooseDraw.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }

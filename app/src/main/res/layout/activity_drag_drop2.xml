@@ -9,17 +9,28 @@
     android:rowCount="2"
     android:stretchMode="columnWidth">
 
+    <include layout="@layout/fondo_pantalla" />
+
+    <android.support.v7.widget.AppCompatImageButton
+        android:id="@+id/goBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/goback"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:id="@+id/cuadrado"
         android:layout_width="159dp"
         android:layout_height="152dp"
         android:layout_row="0"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="80dp"
         android:background="@drawable/cuadrado2"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toStartOf="@+id/rectangulo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -29,67 +40,60 @@
         android:id="@+id/rectangulo2"
         android:layout_width="106dp"
         android:layout_height="78dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginEnd="56dp"
+        android:layout_marginStart="40dp"
         android:layout_marginBottom="32dp"
         android:background="@drawable/rectan"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/trapezi2" />
 
     <LinearLayout
         android:id="@+id/rombo"
         android:layout_width="159dp"
         android:layout_height="152dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="80dp"
         android:background="@drawable/romboshade"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toStartOf="@+id/trapezi"
+        app:layout_constraintStart_toEndOf="@+id/rectangulo"
         app:layout_constraintTop_toTopOf="parent"></LinearLayout>
 
     <ImageView
         android:id="@+id/rombo2"
         android:layout_width="106dp"
         android:layout_height="78dp"
-        android:layout_marginStart="140dp"
-        android:layout_marginEnd="36dp"
+        android:layout_marginStart="80dp"
         android:layout_marginBottom="32dp"
         android:background="@drawable/rombo2"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/cuadrado2"
         app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/trapezi"
         android:layout_width="159dp"
         android:layout_height="152dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="80dp"
         android:background="@drawable/pentagonshade"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/rombo"
         app:layout_constraintTop_toTopOf="parent"></LinearLayout>
 
     <ImageView
         android:id="@+id/trapezi2"
         android:layout_width="106dp"
         android:layout_height="78dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginEnd="36dp"
+        android:layout_marginStart="60dp"
         android:layout_marginBottom="32dp"
         android:background="@drawable/pentagon"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/rectangulo2"
         app:layout_constraintStart_toEndOf="@+id/cuadrado2" />
 
     <LinearLayout
         android:id="@+id/rectangulo"
         android:layout_width="159dp"
         android:layout_height="152dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="80dp"
         android:background="@drawable/rectan2"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toStartOf="@+id/rombo"
+        app:layout_constraintStart_toEndOf="@+id/cuadrado"
         app:layout_constraintTop_toTopOf="parent">
 
     </LinearLayout>
@@ -100,12 +104,10 @@
         android:layout_height="78dp"
         android:layout_row="2"
         android:layout_column="9"
-        android:layout_marginStart="36dp"
-        android:layout_marginEnd="36dp"
+        android:layout_marginStart="80dp"
         android:layout_marginBottom="32dp"
         android:background="@drawable/cuadrado"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/trapezi2"
         app:layout_constraintStart_toEndOf="@+id/rombo2" />
 
 </android.support.constraint.ConstraintLayout>
