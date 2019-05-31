@@ -14,7 +14,7 @@
         <include layout="@layout/fondo_pantalla" />
 
         <ImageButton
-            android:id="@+id/pintarGoBack"
+            android:id="@+id/GoBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
