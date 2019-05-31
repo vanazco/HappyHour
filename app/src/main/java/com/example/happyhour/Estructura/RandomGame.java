@@ -4,9 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.example.happyhour.Games.Adri.ShapeGame;
 import com.example.happyhour.Games.Adri.NumGame;
-import com.example.happyhour.Games.Sebas.Pintar.Pintar;
+import com.example.happyhour.Games.Adri.ShapeGame;
+import com.example.happyhour.Games.Sebas.Pintar.ChooseDraw;
 import com.example.happyhour.Games.Sebas.Puzzle.ChoosePuzzle;
 import com.example.happyhour.Games.Victor.CardGame1;
 import com.example.happyhour.Games.Victor.CardGame2;
@@ -46,7 +46,7 @@ public class RandomGame extends AppCompatActivity {
             intent = new Intent(RandomGame.this, ChoosePuzzle.class);
             startActivity(intent);
         }else if(random == 6){
-            intent = new Intent(RandomGame.this, Pintar.class);
+            intent = new Intent(RandomGame.this, ChooseDraw.class);
             startActivity(intent);
         }
     }
