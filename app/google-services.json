@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "832669767652-7h2bqur5p78csj72ht8qfva2f31qiekq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.happyhour",
+            "certificate_hash": "2b9d0a2024f23e84a637494b3044896394176001"
+          }
+        },
+        {
+          "client_id": "832669767652-cvttjsmouiatapf7uso0rfshfltllvpk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.happyhour",
+            "certificate_hash": "04f5cabc56d4c66d01bb8f6fbf43c72ed55e6e03"
+          }
+        },
+        {
           "client_id": "832669767652-ej24iksic5fsv0g509482vg5jgrfriv5.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

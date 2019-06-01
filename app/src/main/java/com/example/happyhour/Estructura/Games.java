@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.example.happyhour.Games.Adri.NumGame;
-import com.example.happyhour.Games.Adri.Game2_1;
-import com.example.happyhour.Games.Adri.Game2_2;
+import com.example.happyhour.Games.Adri.ShapeGame;
+
 import com.example.happyhour.Games.Sebas.Pintar.ChooseDraw;
 import com.example.happyhour.Games.Sebas.Puzzle.ChoosePuzzle;
 import com.example.happyhour.Games.Victor.CardGame1;
@@ -47,10 +47,7 @@ public class Games extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(level == 1){
-                    intent = new Intent(Games.this, Game2_1.class);
-                    startActivity(intent);
-                }else{
-                    intent = new Intent(Games.this, Game2_2.class);
+                    intent = new Intent(Games.this, ShapeGame.class);
                     startActivity(intent);
                 }
             }

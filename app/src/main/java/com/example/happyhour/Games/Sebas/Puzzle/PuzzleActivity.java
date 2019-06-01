@@ -20,24 +20,42 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.example.happyhour.Estructura.Game;
+import com.example.happyhour.Estructura.Games;
 import com.example.happyhour.Games.BallonActivity;
 import com.example.happyhour.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
+import java.util.UUID;
 
 import static java.lang.Math.abs;
 
 public class PuzzleActivity extends AppCompatActivity {
     ArrayList<PuzzlePiece> pieces;
+    public int id_game = 4;
+    private LocalDateTime inicio,fi;
+    public Game game;
+    private DatabaseReference mRef;
+    String uid,s_inicio,s_fi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_puzzle);
+
+        inicio = LocalDateTime.now();
+        s_inicio = inicio.getDayOfMonth()+ " " + inicio.getHour() +":"+ inicio.getMinute();
+
+        mRef = FirebaseDatabase.getInstance().getReference();
+        uid = FirebaseAuth.getInstance().getUid();
 
         final RelativeLayout layout = findViewById(R.id.layout);
         final ImageView imageView = findViewById(R.id.imageView);
@@ -69,6 +87,11 @@ public class PuzzleActivity extends AppCompatActivity {
         findViewById(R.id.pintarGoBack).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String id = UUID.randomUUID().toString();
+                fi = LocalDateTime.now();
+                s_fi = fi.getDayOfMonth()+ "  " +fi.getHour()+ ":" + fi.getMinute();
+                game = new Game(id,s_inicio,s_fi,id_game);
+                mRef.child("Games").child(uid).child(id).setValue(game);
                 Intent intent = new Intent(PuzzleActivity.this, ChoosePuzzle.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
@@ -307,5 +330,18 @@ public class PuzzleActivity extends AppCompatActivity {
         matrix.postRotate(angle);
         return Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(),
                 matrix, true);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        String id = UUID.randomUUID().toString();
+        fi = LocalDateTime.now();
+        s_fi = fi.getDayOfMonth()+ "  " +fi.getHour()+ ":" + fi.getMinute();
+        game = new Game(id,s_inicio,s_fi,id_game);
+        mRef.child("Games").child(uid).child(id).setValue(game);
+        Intent intent = new Intent(this, Games.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 }

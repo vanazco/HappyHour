@@ -14,4 +14,7 @@
     <string name="lrg">Large</string>
     <string name="camera_icon_for_camera_sound">Camera icon for camera sound</string>
     <string name="wallpaper_image_for_all_the_app">Wallpaper image for all the app</string>
+    <string name="Game_number">Juego</string>
+    <string name="initial_date">Dia y Hora</string>
+    <string name="fi_date">Finalizado</string>
 </resources>

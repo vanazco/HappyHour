@@ -12,7 +12,8 @@
         <activity
             android:name=".Games.Sebas.Pintar.ChooseDraw"
             android:screenOrientation="landscape" />
-        <activity android:name=".Information" />
+        <activity android:name=".Information"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".Games.BallonActivity"
             android:screenOrientation="landscape" />
@@ -47,7 +48,7 @@
             android:noHistory="true"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".Games.Adri.Game2_1"
+            android:name=".Games.Adri.ShapeGame"
             android:noHistory="true"
             android:screenOrientation="landscape" />
         <activity
