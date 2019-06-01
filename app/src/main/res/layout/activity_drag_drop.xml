@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:columnCount="2"
+    android:columnWidth="320dp"
+    android:orientation="vertical"
+    android:rowCount="2"
+    android:stretchMode="columnWidth">
+
+    <include
+        android:id="@+id/include6"
+        layout="@layout/fondo_pantalla" />
+
+    <android.support.v7.widget.AppCompatImageButton
+        android:id="@+id/goBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/goback"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/circulo"
+        android:layout_width="159dp"
+        android:layout_height="152dp"
+        android:layout_row="0"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/circuloshade"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/triangulo2"
+        android:layout_width="106dp"
+        android:layout_height="78dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginBottom="32dp"
+        android:src="@drawable/triangulo1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/circulo2" />
+
+    <LinearLayout
+        android:id="@+id/rombo"
+        android:layout_width="159dp"
+        android:layout_height="152dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/romboshade"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toEndOf="@+id/triangle"
+        app:layout_constraintTop_toTopOf="parent"></LinearLayout>
+
+    <ImageView
+        android:id="@+id/rombo2"
+        android:layout_width="106dp"
+        android:layout_height="78dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/rombo2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/trapezi2" />
+
+    <LinearLayout
+        android:id="@+id/trapezi"
+        android:layout_width="159dp"
+        android:layout_height="152dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/pentagonshade"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toEndOf="@+id/rombo"
+        app:layout_constraintTop_toTopOf="parent"></LinearLayout>
+
+    <ImageView
+        android:id="@+id/trapezi2"
+        android:layout_width="106dp"
+        android:layout_height="78dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/pentagon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/triangle"
+        android:layout_width="159dp"
+        android:layout_height="152dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/trianguloshade"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toEndOf="@+id/circulo"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/circulo2"
+        android:layout_width="106dp"
+        android:layout_height="78dp"
+        android:layout_row="2"
+        android:layout_column="9"
+        android:layout_marginStart="60dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/circulo1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/rombo2" />
+
+</android.support.constraint.ConstraintLayout>
