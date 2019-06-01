@@ -15,6 +15,7 @@ import android.widget.ImageView;
 
 import com.example.happyhour.Balloons.Balloon;
 import com.example.happyhour.Balloons.utils.SoundHelper;
+import com.example.happyhour.Estructura.GameMode;
 import com.example.happyhour.Estructura.Games;
 import com.example.happyhour.Estructura.RandomGame;
 import com.example.happyhour.R;
@@ -221,5 +222,13 @@ public class BallonActivity extends AppCompatActivity implements Balloon.Balloon
         int duration = Math.max(MIN_ANIMATION_DURATION, MAX_ANIMATION_DURATION - (mLevel * 1000));
         balloon.releaseBalloon(mScreenHeight, duration);
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(BallonActivity.this, GameMode.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 }

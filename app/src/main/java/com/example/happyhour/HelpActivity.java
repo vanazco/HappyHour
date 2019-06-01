@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.example.happyhour.Estructura.GameMode;
-import com.example.happyhour.Estructura.Games;
 
 public class HelpActivity extends AppCompatActivity {
 

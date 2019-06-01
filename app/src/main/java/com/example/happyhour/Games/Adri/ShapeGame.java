@@ -7,10 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.example.happyhour.Estructura.Game;
-import com.example.happyhour.Estructura.GameMode;
-import com.example.happyhour.Games.Sebas.Pintar.ChooseDraw;
+import com.example.happyhour.Estructura.Games;
 import com.example.happyhour.R;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -29,6 +30,11 @@ public class ShapeGame extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         final int random = (int) (Math.random() * 2 + 1);
 
+        inicio = LocalDateTime.now();
+        s_inicio = inicio.getDayOfMonth()+ " " + inicio.getHour() +":"+ inicio.getMinute();
+
+        mRef = FirebaseDatabase.getInstance().getReference();
+        uid = FirebaseAuth.getInstance().getUid();
 
         if(random == 1){
             setContentView(R.layout.activity_drag_drop);
@@ -41,8 +47,6 @@ public class ShapeGame extends AppCompatActivity {
             findViewById(R.id.triangle).setOnDragListener(new MyDragListener(this,"triangle"));
             findViewById(R.id.trapezi).setOnDragListener(new MyDragListener(this,"trapezi"));
             findViewById(R.id.rombo).setOnDragListener(new MyDragListener(this,"rombo"));
-
-
 
         } else if( random == 2){
             setContentView(R.layout.activity_drag_drop2);
@@ -65,15 +69,13 @@ public class ShapeGame extends AppCompatActivity {
                 s_fi = fi.getDayOfMonth()+ "  " +fi.getHour()+ ":" + fi.getMinute();
                 game = new Game(id,s_inicio,s_fi,id_game);
                 mRef.child("Games").child(uid).child(id).setValue(game);
-                Intent intent = new Intent(ShapeGame.this, GameMode.class);
+                Intent intent = new Intent(ShapeGame.this, Games.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
         });
 
-
     }
-
 
     @Override
     public void onBackPressed() {
@@ -83,7 +85,7 @@ public class ShapeGame extends AppCompatActivity {
         s_fi = fi.getDayOfMonth()+ "  " +fi.getHour()+ ":" + fi.getMinute();
         game = new Game(id,s_inicio,s_fi,id_game);
         mRef.child("Games").child(uid).child(id).setValue(game);
-        Intent intent = new Intent(this, ChooseDraw.class);
+        Intent intent = new Intent(this, Games.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }

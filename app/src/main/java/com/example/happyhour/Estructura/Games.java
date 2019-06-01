@@ -8,7 +8,6 @@ import android.widget.ImageButton;
 
 import com.example.happyhour.Games.Adri.NumGame;
 import com.example.happyhour.Games.Adri.ShapeGame;
-
 import com.example.happyhour.Games.Sebas.Pintar.ChooseDraw;
 import com.example.happyhour.Games.Sebas.Puzzle.ChoosePuzzle;
 import com.example.happyhour.Games.Victor.CardGame1;
@@ -46,10 +45,8 @@ public class Games extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(level == 1){
-                    intent = new Intent(Games.this, ShapeGame.class);
-                    startActivity(intent);
-                }
+                intent = new Intent(Games.this, ShapeGame.class);
+                startActivity(intent);
             }
         });
         btn3.setOnClickListener(new View.OnClickListener() {

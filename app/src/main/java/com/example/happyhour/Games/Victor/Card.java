@@ -34,11 +34,13 @@ public class Card {
         });
         flip.start();
     }
-    public void checkCards(boolean card2,Card flipped){
+    public boolean checkCards(boolean card2,Card flipped){
         if(flip && !card2){
             flipCard(R.drawable.fondo_carta);
             flipped.flipCard(R.drawable.fondo_carta);
             mp.start();
+            return false;
         }
+        return true;
     }
 }

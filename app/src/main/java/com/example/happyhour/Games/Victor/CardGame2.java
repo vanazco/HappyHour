@@ -10,6 +10,7 @@ import android.view.View;
 
 import com.example.happyhour.Estructura.Game;
 import com.example.happyhour.Estructura.Games;
+import com.example.happyhour.Games.BallonActivity;
 import com.example.happyhour.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -26,7 +27,8 @@ public class CardGame2 extends AppCompatActivity {
     Handler handler;
     MediaPlayer mp;
     public int id_game = 5;
-    private LocalDateTime inicio,fi;
+    private LocalDateTime fi;
+    int contar_win, numCartas;
     public Game game;
     private DatabaseReference mRef;
     String uid,s_inicio,s_fi;
@@ -36,7 +38,7 @@ public class CardGame2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.card_game2);
 
-        inicio = LocalDateTime.now();
+        LocalDateTime inicio = LocalDateTime.now();
         s_inicio = inicio.getDayOfMonth()+ " " + inicio.getHour() +":"+ inicio.getMinute();
 
         mRef = FirebaseDatabase.getInstance().getReference();
@@ -56,9 +58,11 @@ public class CardGame2 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        mp = MediaPlayer.create(CardGame2.this,R.raw.win_effect);
+        mp = MediaPlayer.create(CardGame2.this, R.raw.win_effect);
 
         cartas = 0;
+        contar_win = 0;
+        numCartas = 4;
 
         bee1 = new Card(getApplicationContext());
         bee2 = new Card(getApplicationContext());
@@ -340,9 +344,19 @@ public class CardGame2 extends AppCompatActivity {
     }
 
     public void checkCards2(Card card,Boolean flipped,Card card_flip){
-        card.checkCards(flipped,card_flip);
+        if (card.checkCards(flipped,card_flip)) {
+            contar_win++;
+            GameOver();
+        }
     }
 
-    public void checkWinner(){
+    public void GameOver() {
+        if (contar_win == numCartas) {
+            MediaPlayer mp = MediaPlayer.create(CardGame2.this,R.raw.win_effect);
+            mp.start();
+            Intent intent = new Intent(this, BallonActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+        }
     }
 }

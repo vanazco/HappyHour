@@ -9,7 +9,6 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -22,8 +21,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.time.LocalDateTime;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.UUID;
 
 public class LetterGame extends AppCompatActivity {
@@ -83,7 +80,7 @@ public class LetterGame extends AppCompatActivity {
             setContentView(R.layout.letter_game3);
             empty.img = findViewById(R.id.emptyLetter2);
             empty2.img = findViewById(R.id.emptyLetter3);
-            numLetras = 2;
+            numLetras = 1;
         }
 
         //Asignamos las vocales
@@ -158,6 +155,7 @@ public class LetterGame extends AppCompatActivity {
                         if(firstLetter){
                             mp[2].start();
                             segundaLetra = true;
+                            GameOver();
                         }
                         if(!a.correct && !firstLetter)
                             restorePosition(a, a.x, a.y);
@@ -309,19 +307,12 @@ public class LetterGame extends AppCompatActivity {
                     letter.correct = true;
                     firstLetter = true;
                     mp[2].start();
+                    letrasCorrectas++;
                 }else if(letter.img.getBackground().getConstantState() == empty.img.getBackground().getConstantState() && random > 2){
                     letter.correct = true;
                     firstLetter = true;
                 }else{
                     letter.correct = false;
-                }
-
-                if (letter.correct) {
-                    letrasCorrectas++;
-                }
-
-                if (random == 3 && segundaLetra) {
-                    letrasCorrectas++;
                 }
 
                 if (letrasCorrectas == numLetras) {
@@ -358,6 +349,7 @@ public class LetterGame extends AppCompatActivity {
 
     public void GameOver() {
         Intent intent = new Intent(this, BallonActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
 

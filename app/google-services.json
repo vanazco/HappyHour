@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "832669767652-s1sdjdlas62u6pidqvvj7mlt8jri73e3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.happyhour",
+            "certificate_hash": "1921f523d42e07397b6a244e27905d105331f575"
+          }
+        },
+        {
           "client_id": "832669767652-7h2bqur5p78csj72ht8qfva2f31qiekq.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

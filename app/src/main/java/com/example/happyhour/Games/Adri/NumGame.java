@@ -318,6 +318,7 @@ public class NumGame extends AppCompatActivity {
 
     public void GameOver() {
         Intent intent = new Intent(this, BallonActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
 

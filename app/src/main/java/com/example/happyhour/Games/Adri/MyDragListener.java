@@ -20,29 +20,22 @@ public class MyDragListener implements View.OnDragListener {
                 enterShape = context.getResources().getDrawable(R.drawable.triangulo1);
                 normalShape = context.getResources().getDrawable(R.drawable.triangulo1);
                 break;
-
-
             case "rombo":
                 enterShape = context.getResources().getDrawable(R.drawable.rombo2);
                 normalShape = context.getResources().getDrawable(R.drawable.rombo2);
                 break;
-
-
             case "trapezi":
                 enterShape = context.getResources().getDrawable(R.drawable.pentagon);
                 normalShape = context.getResources().getDrawable(R.drawable.pentagon);
                 break;
-
             case "circulo":
                 enterShape = context.getResources().getDrawable(R.drawable.circulo1);
                 normalShape = context.getResources().getDrawable(R.drawable.circulo1);
                 break;
-
             case "cuadrado":
                 enterShape = context.getResources().getDrawable(R.drawable.cuadrado);
                 normalShape = context.getResources().getDrawable(R.drawable.cuadrado);
                 break;
-
             case "rectangulo":
                 enterShape = context.getResources().getDrawable(R.drawable.rectan);
                 normalShape = context.getResources().getDrawable(R.drawable.rectan);
@@ -61,6 +54,7 @@ public class MyDragListener implements View.OnDragListener {
                 break;
 
             case DragEvent.ACTION_DRAG_EXITED:
+                v.setBackground(normalShape);
                 break;
             case DragEvent.ACTION_DROP:
                 View view = (View) event.getLocalState();
