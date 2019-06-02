@@ -45,9 +45,11 @@ public class LetterGame extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //Coje el tiempo cuando se inicia y lo formatea
         inicio = LocalDateTime.now();
         s_inicio = inicio.getDayOfMonth()+ " " + inicio.getHour() +":"+ inicio.getMinute();
 
+        //Instancia de Firebase database y usuario
         mRef = FirebaseDatabase.getInstance().getReference();
         uid = FirebaseAuth.getInstance().getUid();
 
@@ -64,10 +66,11 @@ public class LetterGame extends AppCompatActivity {
         u = new Letter();
         mp = new MediaPlayer[3];
 
+        //Sonido de error y win
         mp[1] = MediaPlayer.create(LetterGame.this,R.raw.error_sound);
         mp[2] = MediaPlayer.create(LetterGame.this,R.raw.win_effect);
 
-        //cargamos layout en función del random
+        //Cargamos layout en función del random
         if(random == 1){
             setContentView(R.layout.letter_game1);
             empty.img = findViewById(R.id.emptyLetter2);
@@ -92,6 +95,7 @@ public class LetterGame extends AppCompatActivity {
         image = findViewById(R.id.imageView);
         fondo = findViewById(R.id.fondoPantalla);
 
+        //Imagen al clickar sonido
         image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,6 +112,7 @@ public class LetterGame extends AppCompatActivity {
             }
         });
 
+        //Botón de marcha atras guarda datos en el firebase y finaliza la activity
         findViewById(R.id.goBack).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -291,6 +296,7 @@ public class LetterGame extends AppCompatActivity {
         });
     }
 
+    //Metodo que mueve la letra y comprueba si es la correcta
     public void moveLetter(final Letter letter, Integer x, Integer y) {
         //Creamos las animaciones
         ObjectAnimator moveX = ObjectAnimator.ofFloat(letter.img,"x", x);
@@ -347,12 +353,14 @@ public class LetterGame extends AppCompatActivity {
     }
 
 
+    //Termina el juego y sale la activity de los globos
     public void GameOver() {
         Intent intent = new Intent(this, BallonActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
 
+    //Al ir hacia atras finaliza la activity y guarda datos en firebase
     @Override
     public void onBackPressed() {
         super.onBackPressed();

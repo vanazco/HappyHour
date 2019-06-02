@@ -216,7 +216,7 @@ public class CardGame2 extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         if(!panda1.flip && cartas < 2){
-                            panda1.flipCard(R.drawable.panda);
+                            panda1.flipCard(R.drawable.lion);
                             cartas++;
                             panda1.flip = true;
                             if(flipped == null){
@@ -244,7 +244,7 @@ public class CardGame2 extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         if(!panda2.flip && cartas < 2){
-                            panda2.flipCard(R.drawable.panda);
+                            panda2.flipCard(R.drawable.lion);
                             cartas++;
                             panda2.flip = true;
                             if(flipped == null){

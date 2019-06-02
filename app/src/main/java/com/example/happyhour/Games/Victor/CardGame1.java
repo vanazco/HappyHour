@@ -38,12 +38,15 @@ public class CardGame1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.card_game);
 
+        //Coje el tiempo cuando se inicia y lo formatea
         LocalDateTime inicio = LocalDateTime.now();
         s_inicio = inicio.getDayOfMonth()+ " " + inicio.getHour() +":"+ inicio.getMinute();
 
+        //Instancia de Firebase database y usuario
         mRef = FirebaseDatabase.getInstance().getReference();
         uid = FirebaseAuth.getInstance().getUid();
 
+        //Botón de marcha atras guarda datos en el firebase y finaliza la activity
         findViewById(R.id.goBack).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,12 +61,14 @@ public class CardGame1 extends AppCompatActivity {
             }
         });
 
+        //Sonido al ganar
         mp = MediaPlayer.create(CardGame1.this,R.raw.win_effect);
 
         cartas = 0;
         contar_win = 0;
         numCartas = 3;
 
+        //Iniciamos las cartas
         bee1 = new Card(getApplicationContext());
         bee2 = new Card(getApplicationContext());
         bewear1 = new Card(getApplicationContext());
@@ -80,12 +85,14 @@ public class CardGame1 extends AppCompatActivity {
         panda1.btn = findViewById(R.id.panda_1);
         panda2.btn = findViewById(R.id.panda_2);
 
+        //Cuenta atras al principio
         new CountDownTimer(3000,1000){
             @Override
             public void onTick(long millisUntilFinished) {
             }
             @Override
             public void onFinish() {
+                //Se giran las cartas
                 bee1.flipCard(R.drawable.fondo_carta);
                 bee2.flipCard(R.drawable.fondo_carta);
                 bewear1.flipCard(R.drawable.fondo_carta);
@@ -96,10 +103,12 @@ public class CardGame1 extends AppCompatActivity {
                 bee1.btn.setMaxWidth(120);
                 bee2.btn.setMaxWidth(120);
 
+                //Definicion de los listeners de cada carta
                 bee1.btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         if(!bee1.flip && cartas < 2){
+                            //Gira la carta
                             bee1.flipCard(R.drawable.bee);
                             cartas++;
                             bee1.flip = true;
@@ -110,6 +119,7 @@ public class CardGame1 extends AppCompatActivity {
                                 handler.postDelayed(new Runnable() {
                                     @Override
                                     public void run() {
+                                        //Comprueba si hay dos cartas giradas y comprueba si son pareja.
                                         checkCards2(bee1,bee2.flip,flipped);
                                         flipped.flip = false;
                                         flipped = null;
@@ -118,6 +128,7 @@ public class CardGame1 extends AppCompatActivity {
                                     }
                                 },2000);
                             }
+                            //Deshabilita los botones si la pareja esta girada
                         }else if(bee1.flip && bee2.flip){
                             bee1.btn.setClickable(false);
                             bee2.btn.setClickable(false);
@@ -215,7 +226,7 @@ public class CardGame1 extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         if(!panda1.flip && cartas < 2){
-                            panda1.flipCard(R.drawable.panda);
+                            panda1.flipCard(R.drawable.lion);
                             cartas++;
                             panda1.flip = true;
                             if(flipped == null){
@@ -243,7 +254,7 @@ public class CardGame1 extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         if(!panda2.flip && cartas < 2){
-                            panda2.flipCard(R.drawable.panda);
+                            panda2.flipCard(R.drawable.lion);
                             cartas++;
                             panda2.flip = true;
                             if(flipped == null){
@@ -271,6 +282,7 @@ public class CardGame1 extends AppCompatActivity {
         }.start();
     }
 
+    //Al volver atras guarda datos en firebase y finaliza la activity
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -284,6 +296,7 @@ public class CardGame1 extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //Comprueba las cartas si son parejas
     public void checkCards2(Card card,Boolean flipped,Card card_flip){
         if (card.checkCards(flipped,card_flip)) {
             contar_win++;
@@ -291,6 +304,7 @@ public class CardGame1 extends AppCompatActivity {
         }
     }
 
+    //Finaliza la activity , win effect y inicia los globos.
     public void GameOver() {
         if (contar_win == numCartas) {
             MediaPlayer mp = MediaPlayer.create(CardGame1.this,R.raw.win_effect);

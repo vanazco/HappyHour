@@ -61,7 +61,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="8dp"
-        android:background="@drawable/panda"
+        android:background="@drawable/lion"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/rowlet_1"
         app:layout_constraintTop_toBottomOf="@+id/rowlet_2" />
@@ -106,7 +106,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="8dp"
-        android:background="@drawable/panda"
+        android:background="@drawable/lion"
         app:layout_constraintBottom_toBottomOf="@+id/include4"
         app:layout_constraintStart_toEndOf="@+id/bewear_1_2"
         app:layout_constraintTop_toBottomOf="@+id/bewear_2_2" />
