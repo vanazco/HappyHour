@@ -1,4 +1,4 @@
-package com.example.happyhour.Games.Sebas.Puzzle;
+package com.example.happyhour.Games.Sebas;
 
 import android.content.Context;
 import android.content.res.AssetManager;
@@ -79,6 +79,7 @@ public class ImageAdapter extends BaseAdapter {
         return convertView;
     }
 
+    // From a ImageView returns a generated bitmap
     private Bitmap getPicFromAsset(ImageView imageView, String assetName) {
         // Get the dimensions of the View
         int targetW = imageView.getWidth();

@@ -5,7 +5,6 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.AssetManager;
 import android.graphics.drawable.Drawable;
 import android.media.MediaActionSound;
 import android.os.Bundle;
@@ -58,6 +57,7 @@ public class Pintar extends AppCompatActivity implements View.OnClickListener {
 
         try {
             InputStream inputStream = getAssets().open("dibujo/" + assetName);
+            // Create a drawable from the assets
             drawable = Drawable.createFromStream(inputStream, null);
         } catch (IOException e) {
             e.printStackTrace();
@@ -135,7 +135,7 @@ public class Pintar extends AppCompatActivity implements View.OnClickListener {
         //use chosen color
         drawView.setErase(false);
         drawView.setBrushSize(drawView.getLastBrushSize());
-        if(view!=currPaint){
+        if(view != currPaint) {
             //update color
             ImageButton imgView = (ImageButton)view;
             String color = view.getTag().toString();

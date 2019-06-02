@@ -4,14 +4,13 @@ import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
 import com.example.happyhour.Estructura.Games;
-import com.example.happyhour.Games.Sebas.Puzzle.ImageAdapter;
+import com.example.happyhour.Games.Sebas.ImageAdapter;
 import com.example.happyhour.R;
 
 import java.io.IOException;
@@ -25,14 +24,17 @@ public class ChooseDraw extends AppCompatActivity {
 
         AssetManager am = getAssets();
         try {
+            // List all files in "Assets/dibujo"
             final String[] files  = am.list("dibujo");
 
             GridView grid = findViewById(R.id.grid);
+            // Create adapter for the grid
             grid.setAdapter(new ImageAdapter(this, "dibujo"));
             grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                     Intent intent = new Intent(getApplicationContext(), Pintar.class);
+                    // Here it's needed to do a SUBSTRING to get the name of the file
                     intent.putExtra("assetName", files[i % files.length]);
                     startActivity(intent);
                 }

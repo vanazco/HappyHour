@@ -74,7 +74,7 @@ public class LetterGame extends AppCompatActivity {
         if(random == 1){
             setContentView(R.layout.letter_game1);
             empty.img = findViewById(R.id.emptyLetter2);
-            numLetras = 1;
+            numLetras = 2;
         }else if(random == 2){
             setContentView(R.layout.letter_game2);
             empty.img = findViewById(R.id.emptyLetter);
@@ -164,8 +164,6 @@ public class LetterGame extends AppCompatActivity {
                         }
                         if(!a.correct && !firstLetter)
                             restorePosition(a, a.x, a.y);
-                        else
-                            letrasCorrectas++;
                     }
                 },1500);
             }

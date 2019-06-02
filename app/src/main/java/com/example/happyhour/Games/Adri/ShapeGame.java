@@ -19,7 +19,7 @@ import java.util.UUID;
 public class ShapeGame extends AppCompatActivity {
 
     public int id_game = 2;
-    private LocalDateTime inicio,fi;
+    private LocalDateTime fi;
     public Game game;
     private DatabaseReference mRef;
     String uid,s_inicio,s_fi;
@@ -30,13 +30,13 @@ public class ShapeGame extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         final int random = (int) (Math.random() * 2 + 1);
 
-        inicio = LocalDateTime.now();
+        LocalDateTime inicio = LocalDateTime.now();
         s_inicio = inicio.getDayOfMonth()+ " " + inicio.getHour() +":"+ inicio.getMinute();
 
         mRef = FirebaseDatabase.getInstance().getReference();
         uid = FirebaseAuth.getInstance().getUid();
 
-        if(random == 1){
+        /*if(random == 1){
             setContentView(R.layout.activity_drag_drop);
             findViewById(R.id.triangulo2).setOnTouchListener(new MyTouchListener());
             findViewById(R.id.rombo2).setOnTouchListener(new MyTouchListener());
@@ -44,11 +44,11 @@ public class ShapeGame extends AppCompatActivity {
             findViewById(R.id.circulo2).setOnTouchListener(new MyTouchListener());
 
             findViewById(R.id.circulo).setOnDragListener(new MyDragListener(this,"circulo"));
-            findViewById(R.id.triangle).setOnDragListener(new MyDragListener(this,"triangle"));
+            findViewById(R.id.triangle).setOnDragListener(new MyDragListener(this,"triangulo"));
             findViewById(R.id.trapezi).setOnDragListener(new MyDragListener(this,"trapezi"));
             findViewById(R.id.rombo).setOnDragListener(new MyDragListener(this,"rombo"));
 
-        } else if( random == 2){
+        } else if( random == 2){*/
             setContentView(R.layout.activity_drag_drop2);
             findViewById(R.id.rombo2).setOnTouchListener(new MyTouchListener());
             findViewById(R.id.trapezi2).setOnTouchListener(new MyTouchListener());
@@ -59,7 +59,8 @@ public class ShapeGame extends AppCompatActivity {
             findViewById(R.id.trapezi).setOnDragListener(new MyDragListener(this,"trapezi"));
             findViewById(R.id.cuadrado).setOnDragListener(new MyDragListener(this,"cuadrado"));
             findViewById(R.id.rectangulo).setOnDragListener(new MyDragListener(this,"rectangulo"));
-        }
+        //}
+
 
         findViewById(R.id.goBack).setOnClickListener(new View.OnClickListener() {
             @Override

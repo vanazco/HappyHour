@@ -1,5 +1,6 @@
 package com.example.happyhour.Games.Sebas.Puzzle;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
@@ -42,7 +43,7 @@ import static java.lang.Math.abs;
 public class PuzzleActivity extends AppCompatActivity {
     ArrayList<PuzzlePiece> pieces;
     public int id_game = 4;
-    private LocalDateTime inicio,fi;
+    private LocalDateTime fi;
     public Game game;
     private DatabaseReference mRef;
     String uid,s_inicio,s_fi;
@@ -52,7 +53,7 @@ public class PuzzleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_puzzle);
 
-        inicio = LocalDateTime.now();
+        LocalDateTime inicio = LocalDateTime.now();
         s_inicio = inicio.getDayOfMonth()+ " " + inicio.getHour() +":"+ inicio.getMinute();
 
         mRef = FirebaseDatabase.getInstance().getReference();
@@ -66,6 +67,7 @@ public class PuzzleActivity extends AppCompatActivity {
         // run image related code after the view was laid out
         // to have all dimensions calculated
         imageView.post(new Runnable() {
+            @SuppressLint("ClickableViewAccessibility")
             @Override
             public void run() {
                 setPicFromAsset(assetName, imageView);
@@ -300,8 +302,8 @@ public class PuzzleActivity extends AppCompatActivity {
         int imgViewW = imageView.getWidth();
         int imgViewH = imageView.getHeight();
 
-        int top = (int) (imgViewH - actH)/2;
-        int left = (int) (imgViewW - actW)/2;
+        int top = (imgViewH - actH)/2;
+        int left = (imgViewW - actW)/2;
 
         ret[0] = left;
         ret[1] = top;
@@ -311,7 +313,7 @@ public class PuzzleActivity extends AppCompatActivity {
 
     public void checkGameOver() {
         if (isGameOver()) {
-            MediaPlayer mp = MediaPlayer.create(PuzzleActivity.this,R.raw.win_effect);
+            MediaPlayer mp = MediaPlayer.create(PuzzleActivity.this, R.raw.win_effect);
             mp.start();
             Intent intent = new Intent(this, BallonActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -327,13 +329,6 @@ public class PuzzleActivity extends AppCompatActivity {
         }
 
         return true;
-    }
-
-    public static Bitmap rotateImage(Bitmap source, float angle) {
-        Matrix matrix = new Matrix();
-        matrix.postRotate(angle);
-        return Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(),
-                matrix, true);
     }
 
     @Override

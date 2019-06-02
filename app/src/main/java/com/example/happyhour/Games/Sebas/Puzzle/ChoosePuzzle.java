@@ -10,6 +10,7 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import com.example.happyhour.Estructura.Games;
+import com.example.happyhour.Games.Sebas.ImageAdapter;
 import com.example.happyhour.R;
 
 import java.io.IOException;
@@ -23,14 +24,17 @@ public class ChoosePuzzle extends AppCompatActivity {
 
         AssetManager am = getAssets();
         try {
+            // List all files in "Assets/puzzle"
             final String[] files  = am.list("puzzle");
 
             GridView grid = findViewById(R.id.grid);
+            // Create adapter for the grid
             grid.setAdapter(new ImageAdapter(this, "puzzle"));
             grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                     Intent intent = new Intent(getApplicationContext(), PuzzleActivity.class);
+                    // Here it's needed to do a SUBSTRING to get the name of the file
                     intent.putExtra("assetName", files[i % files.length]);
                     startActivity(intent);
                 }

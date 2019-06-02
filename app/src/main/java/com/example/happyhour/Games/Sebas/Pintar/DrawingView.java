@@ -124,7 +124,7 @@ public class DrawingView extends View {
         //update size
         float pixelAmount = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
                 newSize, getResources().getDisplayMetrics());
-        brushSize=pixelAmount;
+        brushSize = pixelAmount;
         drawPaint.setStrokeWidth(brushSize);
     }
 
