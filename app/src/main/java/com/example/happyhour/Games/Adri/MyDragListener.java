@@ -10,7 +10,7 @@ import com.example.happyhour.R;
 public class MyDragListener implements View.OnDragListener {
     private Drawable enterShape;
     private Drawable normalShape;
-    private int background;
+    boolean correcto = false;
 
     MyDragListener(Context context, String figuras) {
 
@@ -19,32 +19,26 @@ public class MyDragListener implements View.OnDragListener {
             case "triangulo":
                 enterShape = context.getResources().getDrawable(R.drawable.triangulo1);
                 normalShape = context.getResources().getDrawable(R.drawable.trianguloshade);
-                background = R.drawable.triangulo1;
                 break;
             case "rombo":
                 enterShape = context.getResources().getDrawable(R.drawable.rombo2);
                 normalShape = context.getResources().getDrawable(R.drawable.romboshade);
-                background = R.drawable.rombo2;
                 break;
             case "trapezi":
                 enterShape = context.getResources().getDrawable(R.drawable.pentagon);
                 normalShape = context.getResources().getDrawable(R.drawable.pentagonshade);
-                background = R.drawable.pentagon;
                 break;
             case "circulo":
                 enterShape = context.getResources().getDrawable(R.drawable.circulo1);
                 normalShape = context.getResources().getDrawable(R.drawable.circuloshade);
-                background = R.drawable.circulo1;
                 break;
             case "cuadrado":
                 enterShape = context.getResources().getDrawable(R.drawable.cuadrado);
                 normalShape = context.getResources().getDrawable(R.drawable.cuadrado2);
-                background = R.drawable.cuadrado;
                 break;
             case "rectangulo":
                 enterShape = context.getResources().getDrawable(R.drawable.rectan);
                 normalShape = context.getResources().getDrawable(R.drawable.rectan2);
-                background = R.drawable.rectan;
                 break;
         }
     }
@@ -70,6 +64,7 @@ public class MyDragListener implements View.OnDragListener {
             case DragEvent.ACTION_DROP:
                 if (view.getBackground().getCurrent().getConstantState() == enterShape.getCurrent().getConstantState()) {
                     view.setVisibility(View.INVISIBLE);
+                    correcto = true;
                 }
                 break;
             case DragEvent.ACTION_DRAG_ENDED:

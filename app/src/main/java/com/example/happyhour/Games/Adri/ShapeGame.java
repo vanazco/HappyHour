@@ -49,18 +49,17 @@ public class ShapeGame extends AppCompatActivity {
             findViewById(R.id.rombo).setOnDragListener(new MyDragListener(this,"rombo"));
 
         } else if( random == 2){*/
-            setContentView(R.layout.activity_drag_drop2);
-            findViewById(R.id.rombo2).setOnTouchListener(new MyTouchListener());
-            findViewById(R.id.trapezi2).setOnTouchListener(new MyTouchListener());
-            findViewById(R.id.cuadrado2).setOnTouchListener(new MyTouchListener());
-            findViewById(R.id.rectangulo2).setOnTouchListener(new MyTouchListener());
+        setContentView(R.layout.activity_shape_touch);
+        findViewById(R.id.rombo2).setOnTouchListener(new MyTouchListener());
+        findViewById(R.id.trapezi2).setOnTouchListener(new MyTouchListener());
+        findViewById(R.id.cuadrado2).setOnTouchListener(new MyTouchListener());
+        findViewById(R.id.rectangulo2).setOnTouchListener(new MyTouchListener());
 
-            findViewById(R.id.rombo).setOnDragListener(new MyDragListener(this,"rombo"));
-            findViewById(R.id.trapezi).setOnDragListener(new MyDragListener(this,"trapezi"));
-            findViewById(R.id.cuadrado).setOnDragListener(new MyDragListener(this,"cuadrado"));
-            findViewById(R.id.rectangulo).setOnDragListener(new MyDragListener(this,"rectangulo"));
+        findViewById(R.id.rombo).setOnDragListener(new MyDragListener(this, "rombo"));
+        findViewById(R.id.trapezi).setOnDragListener(new MyDragListener(this,"trapezi"));
+        findViewById(R.id.cuadrado).setOnDragListener(new MyDragListener(this,"cuadrado"));
+        findViewById(R.id.rectangulo).setOnDragListener(new MyDragListener(this,"rectangulo"));
         //}
-
 
         findViewById(R.id.goBack).setOnClickListener(new View.OnClickListener() {
             @Override
