@@ -23,5 +23,6 @@ public class Game {
                 ", data_fi=" + data_fi +
                 '}';
     }
-
+    
+    public Game(){}
 }
